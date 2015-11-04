@@ -39,7 +39,7 @@ public class DatabaseTableColumn {
 
   /** The class name. */
   private String className;
-  
+
   /**
    * Instantiates a new database table column from a ResultSet.
    *
@@ -50,8 +50,15 @@ public class DatabaseTableColumn {
     name = rs.getString(DatabaseTables.COLUMN_NAME);
     typeName = rs.getString(DatabaseTables.TYPE_NAME);
     size = rs.getInt(DatabaseTables.COLUMN_SIZE);
-    className = 
-        SqlTypeMap.toClass(rs.getInt(DatabaseTables.DATA_TYPE)).getSimpleName();
+    className = SqlTypeMap.toClass(rs.getInt(DatabaseTables.DATA_TYPE))
+        .getSimpleName();
+  }
+  
+  private DatabaseTableColumn(Builder builder) {
+    this.name = builder.name;
+    this.typeName = builder.typeName;
+    this.size = builder.size;
+    this.className = builder.className;
   }
 
   /**
@@ -97,7 +104,74 @@ public class DatabaseTableColumn {
    */
   @Override
   public String toString() {
-    return "Column [name=" + name + ", typeName=" + typeName + ", size=" + size 
+    return "Column [name=" + name + ", typeName=" + typeName + ", size=" + size
         + ", className=" + className + "]";
+  }
+
+  /**
+   * Database table column builder.
+   */
+  public static class Builder {
+
+    /** The name. */
+    private String name;
+
+    /** The type name. */
+    private String typeName;
+
+    /** The size. */
+    private Integer size;
+
+    /** The class name. */
+    private String className;
+
+    /**
+     * Instantiates a new builder.
+     */
+    public Builder(String name) {
+      this.name = name;
+    }
+
+    /**
+     * Type name.
+     *
+     * @param typeName the type name
+     * @return the builder
+     */
+    public Builder typeName(String typeName) {
+      this.typeName = typeName;
+      return this;
+    }
+
+    /**
+     * Size.
+     *
+     * @param size the size
+     * @return the builder
+     */
+    public Builder size(Integer size) {
+      this.size = size;
+      return this;
+    }
+
+    /**
+     * Class name.
+     *
+     * @param className the class name
+     * @return the builder
+     */
+    public Builder className(String className) {
+      this.className = className;
+      return this;
+    }
+    
+    /**
+     * Builds a new database table column.
+     *
+     * @return the database table column
+     */
+    public DatabaseTableColumn build() {
+      return new DatabaseTableColumn(this);
+    }
   }
 }
