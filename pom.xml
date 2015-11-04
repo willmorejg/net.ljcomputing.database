@@ -159,6 +159,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+				  <tagNameFormat>@{project.version}</tagNameFormat>
+				  <suppressCommitBeforeTag>true</suppressCommitBeforeTag>
+				</configuration>
 			</plugin>
 
 			<plugin>
