@@ -48,8 +48,8 @@
 
 	<scm>
 		<url>https://github.com/${github.username}/${project.groupId}.${project.artifactId}</url>
-		<connection>scm:git:git@github.com/${github.username}/${project.groupId}.${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com/${github.username}/${project.groupId}.${project.artifactId}.git</developerConnection>
+		<connection>scm:git:https://git@github.com/${github.username}/${project.groupId}.${project.artifactId}.git</connection>
+		<developerConnection>scm:git:https://git@github.com/${github.username}/${project.groupId}.${project.artifactId}.git</developerConnection>
 	</scm>
 
 	<distributionManagement>
