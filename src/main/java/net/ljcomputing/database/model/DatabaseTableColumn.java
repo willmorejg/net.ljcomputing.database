@@ -54,6 +54,11 @@ public class DatabaseTableColumn {
         .getSimpleName();
   }
   
+  /**
+   * Instantiates a new database table column from builder.
+   *
+   * @param builder the builder
+   */
   private DatabaseTableColumn(Builder builder) {
     this.name = builder.name;
     this.typeName = builder.typeName;
