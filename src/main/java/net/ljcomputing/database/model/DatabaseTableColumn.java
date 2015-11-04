@@ -16,6 +16,10 @@
 
 package net.ljcomputing.database.model;
 
+import net.ljcomputing.database.servcie.impl.SqlTypeMap;
+
+import java.sql.ResultSet;
+
 /**
  * A database table column representation.
  * 
@@ -35,6 +39,20 @@ public class DatabaseTableColumn {
 
   /** The class name. */
   private String className;
+  
+  /**
+   * Instantiates a new database table column from a ResultSet.
+   *
+   * @param rs the ResultSet
+   * @throws Exception the Exception
+   */
+  public DatabaseTableColumn(ResultSet rs) throws Exception {
+    name = rs.getString(DatabaseTables.COLUMN_NAME);
+    typeName = rs.getString(DatabaseTables.TYPE_NAME);
+    size = rs.getInt(DatabaseTables.COLUMN_SIZE);
+    className = 
+        SqlTypeMap.toClass(rs.getInt(DatabaseTables.DATA_TYPE)).getSimpleName();
+  }
 
   /**
    * Gets the name.
@@ -43,15 +61,6 @@ public class DatabaseTableColumn {
    */
   public String getName() {
     return name;
-  }
-
-  /**
-   * Sets the name.
-   *
-   * @param name the new name
-   */
-  public void setName(String name) {
-    this.name = name;
   }
 
   /**
@@ -64,15 +73,6 @@ public class DatabaseTableColumn {
   }
 
   /**
-   * Sets the type name.
-   *
-   * @param typeName the new type name
-   */
-  public void setTypeName(String typeName) {
-    this.typeName = typeName;
-  }
-
-  /**
    * Gets the size.
    *
    * @return the size
@@ -82,30 +82,12 @@ public class DatabaseTableColumn {
   }
 
   /**
-   * Sets the size.
-   *
-   * @param size the new size
-   */
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  /**
    * Gets the class name.
    *
    * @return the class name
    */
   public String getClassName() {
     return className;
-  }
-
-  /**
-   * Sets the class name.
-   *
-   * @param className the new class name
-   */
-  public void setClassName(String className) {
-    this.className = className;
   }
 
   /*
@@ -118,5 +100,4 @@ public class DatabaseTableColumn {
     return "Column [name=" + name + ", typeName=" + typeName + ", size=" + size 
         + ", className=" + className + "]";
   }
-
 }

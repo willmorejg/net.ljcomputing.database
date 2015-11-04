@@ -16,8 +16,6 @@
 
 package net.ljcomputing.database.model;
 
-import net.ljcomputing.database.servcie.impl.SqlTypeMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -41,25 +39,25 @@ import javax.sql.DataSource;
 public class DatabaseTables {
 
   /** The Constant TABLE_CATALOG. */
-  private static final String TABLE_CATALOG = "TABLE_CAT";
+  static final String TABLE_CATALOG = "TABLE_CAT";
 
   /** The Constant TABLE_SCHEMA. */
-  private static final String TABLE_SCHEMA = "TABLE_SCHEM";
+  static final String TABLE_SCHEMA = "TABLE_SCHEM";
 
   /** The Constant TABLE_NAME. */
-  private static final String TABLE_NAME = "TABLE_NAME";
+  static final String TABLE_NAME = "TABLE_NAME";
 
   /** The Constant COLUMN_NAME. */
-  private static final String COLUMN_NAME = "COLUMN_NAME";
+  static final String COLUMN_NAME = "COLUMN_NAME";
 
   /** The Constant TYPE_NAME. */
-  private static final String TYPE_NAME = "TYPE_NAME";
+  static final String TYPE_NAME = "TYPE_NAME";
 
   /** The Constant COLUMN_SIZE. */
-  private static final String COLUMN_SIZE = "COLUMN_SIZE";
+  static final String COLUMN_SIZE = "COLUMN_SIZE";
 
   /** The Constant DATA_TYPE. */
-  private static final String DATA_TYPE = "DATA_TYPE";
+  static final String DATA_TYPE = "DATA_TYPE";
 
   /** The database tables. */
   private List<DatabaseTable> tables = new ArrayList<DatabaseTable>();
@@ -121,14 +119,7 @@ public class DatabaseTables {
           table.getTableSchema(), table.getTableName(), null);
 
       while (rstmdt.next()) {
-        DatabaseTableColumn column = new DatabaseTableColumn();
-        column.setName(rstmdt.getString(COLUMN_NAME));
-        column.setTypeName(rstmdt.getString(TYPE_NAME));
-        column.setSize(rstmdt.getInt(COLUMN_SIZE));
-        column.setClassName(
-            SqlTypeMap.toClass(rstmdt.getInt(DATA_TYPE)).getSimpleName());
-
-        table.addColumn(column);
+        table.addColumn(new DatabaseTableColumn(rstmdt));
       }
 
       tables.add(table);
