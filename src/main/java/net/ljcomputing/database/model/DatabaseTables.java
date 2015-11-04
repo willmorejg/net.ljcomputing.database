@@ -112,8 +112,7 @@ public class DatabaseTables {
 
     while (rsdb.next()) {
 
-      DatabaseTable table = new DatabaseTable(rsdb.getString(TABLE_CATALOG),
-          rsdb.getString(TABLE_SCHEMA), rsdb.getString(TABLE_NAME));
+      DatabaseTable table = new DatabaseTable(rsdb);
 
       ResultSet rstmdt = dbmd.getColumns(table.getTableCatalog(),
           table.getTableSchema(), table.getTableName(), null);

@@ -16,6 +16,7 @@
 
 package net.ljcomputing.database.model;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,18 @@ public class DatabaseTable {
     this.tableCatalog = tableCatalog;
     this.tableSchema = tableSchema;
     this.tableName = tableName;
+  }
+
+  /**
+   * Instantiates a new database table from ResultSet.
+   *
+   * @param rs the ResultSet
+   * @throws Exception the Exception
+   */
+  public DatabaseTable(ResultSet rs) throws Exception {
+    this(rs.getString(DatabaseTables.TABLE_CATALOG),
+        rs.getString(DatabaseTables.TABLE_SCHEMA), 
+        rs.getString(DatabaseTables.TABLE_NAME));
   }
 
   /**
