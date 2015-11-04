@@ -56,6 +56,7 @@ public class DatabaseConversionFactoryImpl implements DatabaseConversionFactory 
   @Value("${database.template.xml:xmlTemplate.ftl}")
   private String xmlTemplate;
 
+  /** The xml suffix. */
   @Value("${database.suffix.xml:xml}")
   private String xmlSuffix;
 
@@ -63,6 +64,7 @@ public class DatabaseConversionFactoryImpl implements DatabaseConversionFactory 
   @Value("${database.template.json:jsonTemplate.ftl}")
   private String jsonTemplate;
 
+  /** The json suffix. */
   @Value("${database.suffix.json:json}")
   private String jsonSuffix;
 

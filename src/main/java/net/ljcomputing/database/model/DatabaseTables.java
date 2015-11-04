@@ -33,7 +33,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 /**
- * The Class DatabaseTables.
+ * A POJO to read a database schema and obtain a List of database table definitions.
  *
  * @author James G. Willmore
  */
@@ -58,12 +58,13 @@ public class DatabaseTables {
   /** The Constant COLUMN_SIZE. */
   private static final String COLUMN_SIZE = "COLUMN_SIZE";
 
+  /** The Constant DATA_TYPE. */
   private static final String DATA_TYPE = "DATA_TYPE";
 
-  /** The tables. */
+  /** The database tables. */
   private List<DatabaseTable> tables = new ArrayList<DatabaseTable>();
 
-  /** The tables map. */
+  /** The database tables map. */
   private Map<String, Object> tablesMap = new HashMap<String, Object>();
 
   /**
@@ -100,10 +101,10 @@ public class DatabaseTables {
   }
 
   /**
-   * Inits the.
+   * Initializes the database table Object.
    *
-   * @param conn the conn
-   * @throws Exception the exception
+   * @param conn the database connection used to read the database schema
+   * @throws Exception an Exception encountered while instantiating the Object
    */
   private synchronized void init(Connection conn) throws Exception {
     DatabaseMetaData dbmd = conn.getMetaData();
@@ -135,7 +136,7 @@ public class DatabaseTables {
   }
 
   /**
-   * Gets the tables.
+   * Gets the database tables.
    *
    * @return the tables
    */
@@ -144,7 +145,7 @@ public class DatabaseTables {
   }
 
   /**
-   * Gets the tables map.
+   * Gets the database tables map.
    *
    * @return the tables map
    */

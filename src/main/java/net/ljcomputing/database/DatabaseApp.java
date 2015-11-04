@@ -36,6 +36,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import java.io.File;
 
 /**
+ * Configuration and command line runner for the net.ljcomputing.database application.
+ * 
  * @author James G. Willmore
  *
  */
@@ -48,12 +50,15 @@ public class DatabaseApp implements CommandLineRunner {
   /** The logger. */
   private static Logger logger = LoggerFactory.getLogger(DatabaseApp.class);
 
+  /** The database tables. */
   @Autowired
   private DatabaseTables databaseTables;
 
+  /** The output path. */
   @Value("${database.output.path:out/}")
   private String outputPath;
 
+  /** The database conversion factory. */
   @Autowired
   private DatabaseConversionFactory databaseConversionFactory;
 
@@ -67,6 +72,10 @@ public class DatabaseApp implements CommandLineRunner {
   }
 
   /**
+   * Run the application.
+   *
+   * @param args the args
+   * @throws Exception the exception
    * @see org.springframework.boot.CommandLineRunner#run(java.lang.String[])
    */
   public void run(String... args) throws Exception {

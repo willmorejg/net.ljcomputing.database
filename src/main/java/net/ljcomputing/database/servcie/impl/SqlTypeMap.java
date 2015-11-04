@@ -19,15 +19,19 @@ package net.ljcomputing.database.servcie.impl;
 import java.sql.Types;
 
 /**
- * http://stackoverflow.com/questions/5251140/map-database-type-to-concrete-java-class
- * 
+ * <p>
+ * Original code obtained from stackoverflow:
+ * <a href="http://stackoverflow.com/a/5253901/576681">http://stackoverflow.com/a/5253901/576681 (author: Dave Jarvis)</a>
+ * </p><p>
+ * Maps SQL data type to Java data type.
+ * </p>
  * @author James G. Willmore
  *
  */
 public class SqlTypeMap {
 
   /**
-   * To class.
+   * Convert SQL data type to Java data type.
    *
    * @param type the type
    * @return the class

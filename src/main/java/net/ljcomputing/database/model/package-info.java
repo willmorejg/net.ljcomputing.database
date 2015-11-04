@@ -15,6 +15,8 @@
  */
 
 /**
+ * Package containing model implementations - mostly POJOs.
+ * 
  * @author James G. Willmore
  *
  */
