@@ -16,10 +16,10 @@
 
 package net.ljcomputing.database;
 
+import net.ljcomputing.database.factory.DatabaseConversionFactory;
 import net.ljcomputing.database.model.DatabaseTables;
-import net.ljcomputing.database.servcie.DatabaseConversionFactory;
-import net.ljcomputing.database.servcie.DatabaseConversionFactory.ServiceType;
 import net.ljcomputing.database.servcie.DatabaseConversionService;
+import net.ljcomputing.database.strategy.DatabaseConversionStrategyType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +47,7 @@ import java.io.File;
 @ComponentScan(basePackages = { "net.ljcomputing.database.*" })
 public class DatabaseApp implements CommandLineRunner {
 
-  /** The logger. */
+  /** The SFL4J logger. */
   private static Logger logger = LoggerFactory.getLogger(DatabaseApp.class);
 
   /** The database tables. */
@@ -85,13 +85,15 @@ public class DatabaseApp implements CommandLineRunner {
       outputDirectory.mkdir();
 
       DatabaseConversionService conversionService = databaseConversionFactory
-          .createConversionService(ServiceType.CLASS);
+          .createConversionService(DatabaseConversionStrategyType.Type.CLASS);
       conversionService.process(databaseTables);
 
-      conversionService = databaseConversionFactory.createConversionService(ServiceType.XML);
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.Type.XML);
       conversionService.process(databaseTables);
 
-      conversionService = databaseConversionFactory.createConversionService(ServiceType.JSON);
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.Type.JSON);
       conversionService.process(databaseTables);
     } catch (Exception e) {
       logger.error("An exception occured: ", e);

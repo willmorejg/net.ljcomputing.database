@@ -19,12 +19,10 @@ package net.ljcomputing.database.servcie.impl;
 import freemarker.template.Configuration;
 
 import net.ljcomputing.StringUtils;
+import net.ljcomputing.database.context.ConversionServiceContext;
 import net.ljcomputing.database.model.DatabaseTable;
 import net.ljcomputing.database.model.DatabaseTables;
 import net.ljcomputing.database.servcie.DatabaseConversionService;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.StringWriter;
@@ -38,31 +36,27 @@ import java.util.Map;
  * @author James G. Willmore
  *
  */
-public class DatabaseUsingTemplateConverter extends AbstractDatabaseConversionService
-    implements DatabaseConversionService {
-  private static Logger logger = LoggerFactory.getLogger(DatabaseUsingTemplateConverter.class);
-
-  /** The file suffix for the output file(s). */
-  protected String fileSuffix;
+public class DatabaseUsingTemplateConverter extends
+    AbstractDatabaseConversionService implements DatabaseConversionService {
 
   /** The output template. */
   protected String outputTemplate;
 
+  /** The Freemarker configuration. */
+  protected Configuration freemarkerConfiguration;
+
   /**
    * Instantiates a new database using template converter.
    *
-   * @param outputTemplate the output template
-   * @param fileSuffix the file suffix
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
+   * @param context the context
    * @throws Exception the exception
    */
-  DatabaseUsingTemplateConverter(String outputTemplate, String fileSuffix, 
-      String outputDirectoryPath, Configuration freemarkerConfiguration) 
-          throws Exception {
-    super(outputDirectoryPath, freemarkerConfiguration);
-    this.outputTemplate = outputTemplate;
-    this.fileSuffix = fileSuffix;
+  public DatabaseUsingTemplateConverter(ConversionServiceContext context)
+      throws Exception {
+    super(context);
+    
+    this.outputTemplate = context.getOutputTemplate();
+    this.freemarkerConfiguration = context.getFreemarkerConfiguration();
   }
 
   /**
@@ -73,12 +67,13 @@ public class DatabaseUsingTemplateConverter extends AbstractDatabaseConversionSe
    * @return the map
    * @throws Exception the exception
    */
-  private Map<String, String> processTemplate(DatabaseTables databaseTables, String template) 
-      throws Exception {
+  private Map<String, String> processTemplate(DatabaseTables databaseTables,
+      String template) throws Exception {
     Map<String, String> results = new HashMap<String, String>();
 
     for (DatabaseTable table : databaseTables.getTables()) {
-      results.put(StringUtils.camelCase(table.getTableName()), processTemplate(table, template));
+      results.put(StringUtils.camelCase(table.getTableName()),
+          processTemplate(table, template));
     }
 
     return results;
@@ -92,7 +87,8 @@ public class DatabaseUsingTemplateConverter extends AbstractDatabaseConversionSe
    * @return the string
    * @throws Exception the exception
    */
-  private String processTemplate(DatabaseTable databaseTable, String template) throws Exception {
+  private String processTemplate(DatabaseTable databaseTable, String template)
+      throws Exception {
     root.put("root", databaseTable);
     return processTemplate(template);
   }
@@ -113,26 +109,8 @@ public class DatabaseUsingTemplateConverter extends AbstractDatabaseConversionSe
   }
 
   /**
-   * Output file.
-   *
-   * @param tableName the table name
-   * @return the file
-   */
-  private File outputFile(String tableName) {
-    StringBuffer buf = new StringBuffer(outputDirectoryPath);
-
-    buf.append(tableName);
-    buf.append("." + fileSuffix);
-
-    File file = new File(buf.toString());
-
-    logger.info(" ... output file name set to {}", file.getAbsolutePath());
-
-    return file;
-  }
-
-  /**
-   * @see net.ljcomputing.database.servcie.DatabaseConversionService#process(net.ljcomputing.database.model.DatabaseTables)
+   * @see net.ljcomputing.database.servcie.DatabaseConversionService#process(
+   * net.ljcomputing.database.model.DatabaseTables)
    */
   public void process(DatabaseTables databaseTables) throws Exception {
     Map<String, String> map = processTemplate(databaseTables, outputTemplate);

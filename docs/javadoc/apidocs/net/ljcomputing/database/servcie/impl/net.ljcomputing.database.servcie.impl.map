@@ -1,10 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./DatabaseConversionFactoryImpl.html" title="net.ljcomputing.database.servcie.impl.DatabaseConversionFactoryImpl" alt="" coords="16,17,213,42"/>
-<area shape="rect" id="node1" href="./DatabaseConversionFactoryImpl.html" title="&lt;TABLE&gt;" alt="" coords="5,5,224,53"/>
-<area shape="rect" id="node2_1" href="./DatabaseUsingTemplateConverter.html" title="net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter" alt="" coords="265,113,474,138"/>
-<area shape="rect" id="node2" href="./DatabaseUsingTemplateConverter.html" title="&lt;TABLE&gt;" alt="" coords="254,101,485,149"/>
-<area shape="rect" id="node3_2" href="./AbstractDatabaseConversionService.html" title="net.ljcomputing.database.servcie.impl.AbstractDatabaseConversionService" alt="" coords="259,17,479,42"/>
-<area shape="rect" id="node3" href="./AbstractDatabaseConversionService.html" title="&lt;TABLE&gt;" alt="" coords="249,5,490,53"/>
-<area shape="rect" id="node4_3" href="./SqlTypeMap.html" title="net.ljcomputing.database.servcie.impl.SqlTypeMap" alt="" coords="525,17,613,42"/>
-<area shape="rect" id="node4" href="./SqlTypeMap.html" title="&lt;TABLE&gt;" alt="" coords="515,5,624,53"/>
+<area shape="rect" id="node1_0" href="./DatabaseUsingTemplateConverter.html" title="net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter" alt="" coords="21,113,230,138"/>
+<area shape="rect" id="node1" href="./DatabaseUsingTemplateConverter.html" title="&lt;TABLE&gt;" alt="" coords="10,101,241,149"/>
+<area shape="rect" id="node2_1" href="./AbstractDatabaseConversionService.html" title="net.ljcomputing.database.servcie.impl.AbstractDatabaseConversionService" alt="" coords="15,17,235,42"/>
+<area shape="rect" id="node2" href="./AbstractDatabaseConversionService.html" title="&lt;TABLE&gt;" alt="" coords="5,5,246,53"/>
+<area shape="rect" id="node3_2" href="./SqlTypeMap.html" title="net.ljcomputing.database.servcie.impl.SqlTypeMap" alt="" coords="281,17,369,42"/>
+<area shape="rect" id="node3" href="./SqlTypeMap.html" title="&lt;TABLE&gt;" alt="" coords="271,5,380,53"/>
 </map>

@@ -1,8 +1,4 @@
 <map id="G" name="G">
 <area shape="rect" id="node1_0" href="./DatabaseConversionService.html" title="net.ljcomputing.database.servcie.DatabaseConversionService" alt="" coords="16,11,192,53"/>
 <area shape="rect" id="node1" href="./DatabaseConversionService.html" title="&lt;TABLE&gt;" alt="" coords="5,6,203,58"/>
-<area shape="rect" id="node2_1" href="./DatabaseConversionFactory.html" title="net.ljcomputing.database.servcie.DatabaseConversionFactory" alt="" coords="238,11,413,53"/>
-<area shape="rect" id="node2" href="./DatabaseConversionFactory.html" title="&lt;TABLE&gt;" alt="" coords="227,6,423,58"/>
-<area shape="rect" id="node3_2" href="./DatabaseConversionFactory.ServiceType.html" title="net.ljcomputing.database.servcie.DatabaseConversionFactory.ServiceType" alt="" coords="459,11,560,53"/>
-<area shape="rect" id="node3" href="./DatabaseConversionFactory.ServiceType.html" title="&lt;TABLE&gt;" alt="" coords="448,6,571,58"/>
 </map>

@@ -10,25 +10,11 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.ljcomputing.database.servcie.DatabaseConversionService
-	c0 [label=<<table title="net.ljcomputing.database.servcie.DatabaseConversionService" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionService.html">
+	c28 [label=<<table title="net.ljcomputing.database.servcie.DatabaseConversionService" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionService.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionService </td></tr>
 		</table></td></tr>
 		</table>>, URL="./DatabaseConversionService.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.database.servcie.DatabaseConversionFactory
-	c1 [label=<<table title="net.ljcomputing.database.servcie.DatabaseConversionFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionFactory.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
-<tr><td align="center" balign="center"> DatabaseConversionFactory </td></tr>
-		</table></td></tr>
-		</table>>, URL="./DatabaseConversionFactory.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.database.servcie.DatabaseConversionFactory.ServiceType
-	c2 [label=<<table title="net.ljcomputing.database.servcie.DatabaseConversionFactory.ServiceType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionFactory.ServiceType.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
-<tr><td align="center" balign="center"> ServiceType </td></tr>
-		</table></td></tr>
-		</table>>, URL="./DatabaseConversionFactory.ServiceType.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }
 

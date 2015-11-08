@@ -23,6 +23,8 @@ import org.springframework.stereotype.Component;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -46,18 +48,30 @@ public class DatabaseTables {
 
   /** The Constant TABLE_NAME. */
   static final String TABLE_NAME = "TABLE_NAME";
-
-  /** The Constant COLUMN_NAME. */
-  static final String COLUMN_NAME = "COLUMN_NAME";
-
-  /** The Constant TYPE_NAME. */
-  static final String TYPE_NAME = "TYPE_NAME";
-
-  /** The Constant COLUMN_SIZE. */
-  static final String COLUMN_SIZE = "COLUMN_SIZE";
-
-  /** The Constant DATA_TYPE. */
-  static final String DATA_TYPE = "DATA_TYPE";
+  
+  //*may* need in future - right now, not
+//  static final String COLUMN_NAME = "COLUMN_NAME";
+//  static final String TYPE_NAME = "TYPE_NAME";
+//  static final String COLUMN_SIZE = "COLUMN_SIZE";
+//  static final String DATA_TYPE = "DATA_TYPE";
+//  static final String NULLABLE = "NULLABLE";
+//  static final String ORDINAL_POSITION = "ORDINAL_POSITION";
+//// --
+//  static final String BUFFER_LENGTH = "BUFFER_LENGTH";
+//  static final String DECIMAL_DIGITS = "DECIMAL_DIGITS";
+//  static final String NUM_PREC_RADIX = "NUM_PREC_RADIX";
+//  static final String REMARKS = "REMARKS";
+//  static final String COLUMN_DEF = "COLUMN_DEF";
+//  static final String SQL_DATA_TYPE = "SQL_DATA_TYPE";
+//  static final String SQL_DATETIME_SUB = "SQL_DATETIME_SUB";
+//  static final String CHAR_OCTET_LENGTH = "CHAR_OCTET_LENGTH";
+//  static final String IS_AUTOINCREMENT = "IS_AUTOINCREMENT";
+//  static final String IS_GENERATEDCOLUMN = "IS_GENERATEDCOLUMN";
+////----
+//  static final String SCOPE_CATALOG = "SCOPE_CATALOG";
+//  static final String SCOPE_SCHEMA = "SCOPE_SCHEMA";
+//  static final String SCOPE_TABLE = "SCOPE_TABLE";
+//  static final String SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE";
 
   /** The database tables. */
   private List<DatabaseTable> tables = new ArrayList<DatabaseTable>();
@@ -111,15 +125,24 @@ public class DatabaseTables {
     tablesMap.put("tables", tables);
 
     while (rsdb.next()) {
-
       DatabaseTable table = new DatabaseTable(rsdb);
+      Statement stmt = conn.createStatement();
 
-      ResultSet rstmdt = dbmd.getColumns(table.getTableCatalog(),
-          table.getTableSchema(), table.getTableName(), null);
+      // in order to get information about the table directly using the methods
+      // in the ResultSetMetaData class, we have to execute a query -
+      // the query returns no rows from the table
+      ResultSet rs = stmt
+          .executeQuery("select * from " + table.getTableName() + " where 1=0");
 
-      while (rstmdt.next()) {
-        table.addColumn(new DatabaseTableColumn(rstmdt));
+      ResultSetMetaData rsmdt = rs.getMetaData();
+      int columnCount = rsmdt.getColumnCount();
+
+      for (int i = 1; i <= columnCount; i++) {
+        table.addColumn(new DatabaseTableColumn(rsmdt, i));
       }
+
+      rs.close();
+      stmt.close();
 
       tables.add(table);
     }

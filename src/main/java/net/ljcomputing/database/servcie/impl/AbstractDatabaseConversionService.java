@@ -22,6 +22,11 @@ import freemarker.ext.beans.BeansWrapperBuilder;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateHashModel;
 
+import net.ljcomputing.database.context.ConversionServiceContext;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,16 +40,17 @@ import java.util.Map;
  * @author James G. Willmore
  *
  */
-public abstract class AbstractDatabaseConversionService {
+abstract class AbstractDatabaseConversionService {
+
+  /** The SLF4j logger. */
+  private static Logger logger = LoggerFactory
+      .getLogger(AbstractDatabaseConversionService.class);
 
   /** The output directory path. */
   protected String outputDirectoryPath;
 
   /** The output directory. */
   protected File outputDirectory;
-
-  /** The Freemarker configuration. */
-  protected Configuration freemarkerConfiguration;
 
   /** The root. */
   protected Map<String, Object> root;
@@ -58,33 +64,56 @@ public abstract class AbstractDatabaseConversionService {
   /** The string utils. */
   protected TemplateHashModel stringUtils;
 
+  /** The file suffix. */
+  protected String fileSuffix;
+
   /**
    * Instantiates a new abstract database conversion service.
    *
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
+   * @param context the context
    * @throws Exception the exception
    */
-  AbstractDatabaseConversionService(String outputDirectoryPath, 
-      Configuration freemarkerConfiguration)
-      throws Exception {
-    this.outputDirectoryPath = outputDirectoryPath + "/";
-    this.freemarkerConfiguration = freemarkerConfiguration;
+  protected AbstractDatabaseConversionService(
+      ConversionServiceContext context) throws Exception {
+    logger.debug("context: {}", context);
+    this.outputDirectoryPath = context.getOutputDirectoryPath();
+    this.fileSuffix = context.getFileSuffix();
+
     this.outputDirectory = new File(this.outputDirectoryPath);
 
     root = new HashMap<String, Object>();
     wrapper = new BeansWrapperBuilder(Configuration.VERSION_2_3_21).build();
 
     staticModels = wrapper.getStaticModels();
-    stringUtils = (TemplateHashModel) staticModels.get("net.ljcomputing.StringUtils");
+    stringUtils = (TemplateHashModel) staticModels
+        .get("net.ljcomputing.StringUtils");
 
     root.put("stringUtils", stringUtils);
   }
 
   /**
-   * Write to file.
+   * Create the output file for the processed template content.
    *
-   * @param file the file @param content the content
+   * @param tableName the table name
+   * @return the file
+   */
+  protected File outputFile(String tableName) {
+    StringBuffer buf = new StringBuffer(outputDirectoryPath);
+
+    buf.append(tableName);
+    buf.append("." + fileSuffix);
+
+    File file = new File(buf.toString());
+
+    logger.info(" ... output file name set to {}", file.getAbsolutePath());
+
+    return file;
+  }
+
+  /**
+   * Write the processed template content to file.
+   *
+   * @param file the file 
    * @param content the content
    * @throws Exception the exception
    */

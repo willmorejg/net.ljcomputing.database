@@ -1,5 +1,11 @@
 net.ljcomputing
 net.ljcomputing.database
+net.ljcomputing.database.context
+net.ljcomputing.database.context.impl
+net.ljcomputing.database.factory
+net.ljcomputing.database.factory.impl
 net.ljcomputing.database.model
 net.ljcomputing.database.servcie
 net.ljcomputing.database.servcie.impl
+net.ljcomputing.database.strategy
+net.ljcomputing.database.strategy.impl

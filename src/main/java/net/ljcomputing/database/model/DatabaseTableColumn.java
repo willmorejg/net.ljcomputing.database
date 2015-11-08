@@ -18,7 +18,7 @@ package net.ljcomputing.database.model;
 
 import net.ljcomputing.database.servcie.impl.SqlTypeMap;
 
-import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 
 /**
  * A database table column representation.
@@ -40,20 +40,26 @@ public class DatabaseTableColumn {
   /** The class name. */
   private String className;
 
+  /** indicates if the column is nullable. */
+  private Boolean nullable;
+
   /**
-   * Instantiates a new database table column from a ResultSet.
+   * Instantiates a new database table column.
    *
-   * @param rs the ResultSet
-   * @throws Exception the Exception
+   * @param rsmd the rsmd
+   * @param columnNumber the column number
+   * @throws Exception the exception
    */
-  public DatabaseTableColumn(ResultSet rs) throws Exception {
-    name = rs.getString(DatabaseTables.COLUMN_NAME);
-    typeName = rs.getString(DatabaseTables.TYPE_NAME);
-    size = rs.getInt(DatabaseTables.COLUMN_SIZE);
-    className = SqlTypeMap.toClass(rs.getInt(DatabaseTables.DATA_TYPE))
+  public DatabaseTableColumn(ResultSetMetaData rsmd, int columnNumber)
+      throws Exception {
+    name = rsmd.getColumnName(columnNumber);
+    typeName = rsmd.getColumnTypeName(columnNumber);
+    size = rsmd.getColumnDisplaySize(columnNumber);
+    className = SqlTypeMap.toClass(rsmd.getColumnType(columnNumber))
         .getSimpleName();
+    nullable = (rsmd.isNullable(columnNumber) == 0);
   }
-  
+
   /**
    * Instantiates a new database table column from builder.
    *
@@ -100,6 +106,15 @@ public class DatabaseTableColumn {
    */
   public String getClassName() {
     return className;
+  }
+
+  /**
+   * Checks if the column is nullable.
+   *
+   * @return the boolean
+   */
+  public Boolean isNullable() {
+    return nullable;
   }
 
   /*
@@ -169,7 +184,7 @@ public class DatabaseTableColumn {
       this.className = className;
       return this;
     }
-    
+
     /**
      * Builds a new database table column.
      *
