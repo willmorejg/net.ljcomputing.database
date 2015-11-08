@@ -78,21 +78,21 @@ public class DatabaseConversionFactoryImpl
     return instance;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see net.ljcomputing.database.servcie.DatabaseConversionFactory#
-   * createConversionService(net.ljcomputing.database.strategy.
-   * DatabaseConversionStrategyType)
+  /**
+   * Creates the conversion service.
+   *
+   * @param conversionStrategy the conversion strategy
+   * @return the database conversion service
+   * @throws Exception the exception
+   * @see net.ljcomputing.database.factory.DatabaseConversionFactory
+   * #createConversionService(net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type)
    */
   public DatabaseConversionService createConversionService(
       DatabaseConversionStrategyType.Type conversionStrategy) throws Exception {
     DatabaseConversionStrategy strategy = conversionStrategy.strategy();
     ConversionServiceContext ctx = strategy.getContext();
     ConversionServiceContext context = new DatabaseConversionServiceContext(
-        outputDirectoryPath, 
-        freemarkerConfiguration, 
-        ctx.getOutputTemplate(),
+        outputDirectoryPath, freemarkerConfiguration, ctx.getOutputTemplate(),
         ctx.getFileSuffix());
 
     logger.debug("context : {}", context);

@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./AbstractDatabaseConversionStrategy.html" title="net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy" alt="" coords="16,131,240,157"/>
+<area shape="rect" id="node1" href="./AbstractDatabaseConversionStrategy.html" title="&lt;TABLE&gt;" alt="" coords="5,120,251,168"/>
+<area shape="rect" id="node2_1" href="./XmlConversionStrategy.html" title="net.ljcomputing.database.strategy.impl.XmlConversionStrategy" alt="" coords="134,227,282,253"/>
+<area shape="rect" id="node2" href="./XmlConversionStrategy.html" title="&lt;TABLE&gt;" alt="" coords="123,216,293,264"/>
+<area shape="rect" id="node3_2" href="../DatabaseConversionStrategy.html" title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" alt="" coords="118,11,298,66"/>
+<area shape="rect" id="node3" href="../DatabaseConversionStrategy.html" title="&lt;TABLE&gt;" alt="" coords="107,6,309,71"/>
+</map>
