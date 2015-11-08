@@ -33,12 +33,14 @@ public interface ConversionServiceContext {
    * @return the output directory path
    */
   public String getOutputDirectoryPath();
+
   /**
    * Gets the output template.
    *
    * @return the output template
    */
   public String getOutputTemplate();
+
   /**
    * Gets the file suffix.
    *
