@@ -10,19 +10,19 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c837 [label=<<table title="net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractDatabaseConversionStrategy.html">
+	c782 [label=<<table title="net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractDatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> AbstractDatabaseConversionStrategy </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./AbstractDatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.impl.JsonConversionStrategy
-	c840 [label=<<table title="net.ljcomputing.database.strategy.impl.JsonConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JsonConversionStrategy.html">
+	c785 [label=<<table title="net.ljcomputing.database.strategy.impl.JsonConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./JsonConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> JsonConversionStrategy </td></tr>
 		</table></td></tr>
 		</table>>, URL="./JsonConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c841 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../DatabaseConversionStrategy.html">
+	c786 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../DatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionStrategy </td></tr>
@@ -30,10 +30,10 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../DatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c841:p -> c837:p [dir=back,arrowtail=empty,style=dashed];
+	c786:p -> c782:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.database.strategy.impl.JsonConversionStrategy extends net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c837:p -> c840:p [dir=back,arrowtail=empty];
+	c782:p -> c785:p [dir=back,arrowtail=empty];
 	//net.ljcomputing.database.strategy.impl.JsonConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c841:p -> c840:p [dir=back,arrowtail=empty,style=dashed];
+	c786:p -> c785:p [dir=back,arrowtail=empty,style=dashed];
 }
 

@@ -36,5 +36,5 @@ public interface DatabaseConversionFactory {
    * @throws Exception the exception
    */
   public DatabaseConversionService createConversionService(
-      DatabaseConversionStrategyType.Type conversionStrategy) throws Exception;
+      DatabaseConversionStrategyType conversionStrategy) throws Exception;
 }

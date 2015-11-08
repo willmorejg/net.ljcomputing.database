@@ -10,26 +10,20 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c139 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategy.html">
+	c134 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionStrategy </td></tr>
 		</table></td></tr>
 		</table>>, URL="./DatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType
-	c140 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategyType.html">
+	c135 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategyType.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionStrategyType </td></tr>
 		</table></td></tr>
 		</table>>, URL="./DatabaseConversionStrategyType.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type
-	c141 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategyType.Type.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
-<tr><td align="center" balign="center"> Type </td></tr>
-		</table></td></tr>
-		</table>>, URL="./DatabaseConversionStrategyType.Type.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type NAVASSOC net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c141:p -> c139:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType NAVASSOC net.ljcomputing.database.strategy.DatabaseConversionStrategy
+	c135:p -> c134:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 }
 

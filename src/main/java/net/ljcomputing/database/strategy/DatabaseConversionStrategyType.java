@@ -20,39 +20,34 @@ import net.ljcomputing.database.strategy.impl.ClassConversionStrategy;
 import net.ljcomputing.database.strategy.impl.JsonConversionStrategy;
 import net.ljcomputing.database.strategy.impl.XmlConversionStrategy;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Enumeration of database conversion strategies.
  * 
  * @author James G. Willmore
  *
  */
-@Component
-public class DatabaseConversionStrategyType {
-  public enum Type {
-    CLASS(new ClassConversionStrategy()), XML(new XmlConversionStrategy()), JSON(
-        new JsonConversionStrategy());
-  
-    /** The database conversion strategy. */
-    private DatabaseConversionStrategy strategy;
-  
-    /**
+public enum DatabaseConversionStrategyType {
+  CLASS(new ClassConversionStrategy()), XML(new XmlConversionStrategy()), JSON(
+      new JsonConversionStrategy());
+
+  /** The database conversion strategy. */
+  private DatabaseConversionStrategy strategy;
+
+  /**
      * Instantiates a new database conversion strategy type.
      *
      * @param strategy the strategy
      */
-    private Type(DatabaseConversionStrategy strategy) {
-      this.strategy = strategy;
-    }
-  
-    /**
-     * Get the the database conversion strategy.
-     *
-     * @return the database conversion strategy
-     */
-    public DatabaseConversionStrategy strategy() {
-      return strategy;
-    }
+  private DatabaseConversionStrategyType(DatabaseConversionStrategy strategy) {
+    this.strategy = strategy;
+  }
+
+  /**
+   * Get the the database conversion strategy.
+   *
+   * @return the database conversion strategy
+   */
+  public DatabaseConversionStrategy strategy() {
+    return strategy;
   }
 }

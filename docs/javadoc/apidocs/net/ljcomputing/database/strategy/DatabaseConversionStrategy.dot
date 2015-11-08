@@ -10,7 +10,7 @@ digraph G {
 	nodesep=0.25;
 	ranksep=0.5;
 	// net.ljcomputing.database.context.ConversionServiceContext
-	c630 [label=<<table title="net.ljcomputing.database.context.ConversionServiceContext" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../context/ConversionServiceContext.html">
+	c607 [label=<<table title="net.ljcomputing.database.context.ConversionServiceContext" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../context/ConversionServiceContext.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> ConversionServiceContext </td></tr>
@@ -18,68 +18,68 @@ digraph G {
 		</table></td></tr>
 		</table>>, URL="../context/ConversionServiceContext.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c636 [label=<<table title="net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/AbstractDatabaseConversionStrategy.html">
+	c613 [label=<<table title="net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/AbstractDatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"><font face="Helvetica-Oblique"> AbstractDatabaseConversionStrategy </font></td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.strategy.impl </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./impl/AbstractDatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.impl.ClassConversionStrategy
-	c637 [label=<<table title="net.ljcomputing.database.strategy.impl.ClassConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/ClassConversionStrategy.html">
+	c614 [label=<<table title="net.ljcomputing.database.strategy.impl.ClassConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/ClassConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> ClassConversionStrategy </td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.strategy.impl </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./impl/ClassConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.impl.XmlConversionStrategy
-	c638 [label=<<table title="net.ljcomputing.database.strategy.impl.XmlConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/XmlConversionStrategy.html">
+	c615 [label=<<table title="net.ljcomputing.database.strategy.impl.XmlConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/XmlConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> XmlConversionStrategy </td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.strategy.impl </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./impl/XmlConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.impl.JsonConversionStrategy
-	c639 [label=<<table title="net.ljcomputing.database.strategy.impl.JsonConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/JsonConversionStrategy.html">
+	c616 [label=<<table title="net.ljcomputing.database.strategy.impl.JsonConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./impl/JsonConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> JsonConversionStrategy </td></tr>
 <tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.strategy.impl </font></td></tr>
 		</table></td></tr>
 		</table>>, URL="./impl/JsonConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c640 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DatabaseConversionStrategy.html">
+	c617 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionStrategy </td></tr>
 		</table></td></tr>
 		</table>>, URL="./DatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
-	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type
-	c642 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategyType.Type.html">
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType
+	c618 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategyType.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 <tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
-<tr><td align="center" balign="center"> Type </td></tr>
+<tr><td align="center" balign="center"> DatabaseConversionStrategyType </td></tr>
 		</table></td></tr>
-		</table>>, URL="./DatabaseConversionStrategyType.Type.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+		</table>>, URL="./DatabaseConversionStrategyType.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c640:p -> c636:p [dir=back,arrowtail=empty,style=dashed];
+	c617:p -> c613:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.database.strategy.impl.ClassConversionStrategy extends net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c636:p -> c637:p [dir=back,arrowtail=empty];
+	c613:p -> c614:p [dir=back,arrowtail=empty];
 	//net.ljcomputing.database.strategy.impl.ClassConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c640:p -> c637:p [dir=back,arrowtail=empty,style=dashed];
+	c617:p -> c614:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.database.strategy.impl.XmlConversionStrategy extends net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c636:p -> c638:p [dir=back,arrowtail=empty];
+	c613:p -> c615:p [dir=back,arrowtail=empty];
 	//net.ljcomputing.database.strategy.impl.XmlConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c640:p -> c638:p [dir=back,arrowtail=empty,style=dashed];
+	c617:p -> c615:p [dir=back,arrowtail=empty,style=dashed];
 	//net.ljcomputing.database.strategy.impl.JsonConversionStrategy extends net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy
-	c636:p -> c639:p [dir=back,arrowtail=empty];
+	c613:p -> c616:p [dir=back,arrowtail=empty];
 	//net.ljcomputing.database.strategy.impl.JsonConversionStrategy implements net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c640:p -> c639:p [dir=back,arrowtail=empty,style=dashed];
+	c617:p -> c616:p [dir=back,arrowtail=empty,style=dashed];
 	// net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy NAVASSOC net.ljcomputing.database.context.ConversionServiceContext
-	c636:p -> c630:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type NAVASSOC net.ljcomputing.database.strategy.DatabaseConversionStrategy
-	c642:p -> c640:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	c613:p -> c607:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType NAVASSOC net.ljcomputing.database.strategy.DatabaseConversionStrategy
+	c618:p -> c617:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.ljcomputing.database.strategy.impl.AbstractDatabaseConversionStrategy DEPEND net.ljcomputing.database.context.ConversionServiceContext
-	c636:p -> c630:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c613:p -> c607:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.ljcomputing.database.strategy.DatabaseConversionStrategy DEPEND net.ljcomputing.database.context.ConversionServiceContext
-	c640:p -> c630:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	c617:p -> c607:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

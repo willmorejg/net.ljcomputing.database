@@ -93,15 +93,15 @@
 <span class="sourceLineNo">085</span>      outputDirectory.mkdir();<a name="line.85"></a>
 <span class="sourceLineNo">086</span><a name="line.86"></a>
 <span class="sourceLineNo">087</span>      DatabaseConversionService conversionService = databaseConversionFactory<a name="line.87"></a>
-<span class="sourceLineNo">088</span>          .createConversionService(DatabaseConversionStrategyType.Type.CLASS);<a name="line.88"></a>
+<span class="sourceLineNo">088</span>          .createConversionService(DatabaseConversionStrategyType.CLASS);<a name="line.88"></a>
 <span class="sourceLineNo">089</span>      conversionService.process(databaseTables);<a name="line.89"></a>
 <span class="sourceLineNo">090</span><a name="line.90"></a>
 <span class="sourceLineNo">091</span>      conversionService = databaseConversionFactory<a name="line.91"></a>
-<span class="sourceLineNo">092</span>          .createConversionService(DatabaseConversionStrategyType.Type.XML);<a name="line.92"></a>
+<span class="sourceLineNo">092</span>          .createConversionService(DatabaseConversionStrategyType.XML);<a name="line.92"></a>
 <span class="sourceLineNo">093</span>      conversionService.process(databaseTables);<a name="line.93"></a>
 <span class="sourceLineNo">094</span><a name="line.94"></a>
 <span class="sourceLineNo">095</span>      conversionService = databaseConversionFactory<a name="line.95"></a>
-<span class="sourceLineNo">096</span>          .createConversionService(DatabaseConversionStrategyType.Type.JSON);<a name="line.96"></a>
+<span class="sourceLineNo">096</span>          .createConversionService(DatabaseConversionStrategyType.JSON);<a name="line.96"></a>
 <span class="sourceLineNo">097</span>      conversionService.process(databaseTables);<a name="line.97"></a>
 <span class="sourceLineNo">098</span>    } catch (Exception e) {<a name="line.98"></a>
 <span class="sourceLineNo">099</span>      logger.error("An exception occured: ", e);<a name="line.99"></a>

@@ -1,8 +1,8 @@
 <map id="G" name="G">
 <area shape="rect" id="node1_0" href="../../servcie/DatabaseConversionService.html" title="net.ljcomputing.database.servcie.DatabaseConversionService" alt="" coords="16,222,192,277"/>
 <area shape="rect" id="node1" href="../../servcie/DatabaseConversionService.html" title="&lt;TABLE&gt;" alt="" coords="5,217,203,282"/>
-<area shape="rect" id="node2_1" href="../../strategy/DatabaseConversionStrategyType.Type.html" title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type" alt="" coords="386,222,691,277"/>
-<area shape="rect" id="node2" href="../../strategy/DatabaseConversionStrategyType.Type.html" title="&lt;TABLE&gt;" alt="" coords="375,217,702,282"/>
+<area shape="rect" id="node2_1" href="../../strategy/DatabaseConversionStrategyType.html" title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" alt="" coords="386,222,593,277"/>
+<area shape="rect" id="node2" href="../../strategy/DatabaseConversionStrategyType.html" title="&lt;TABLE&gt;" alt="" coords="375,217,603,282"/>
 <area shape="rect" id="node3_2" href="../DatabaseConversionFactory.html" title="net.ljcomputing.database.factory.DatabaseConversionFactory" alt="" coords="202,11,377,66"/>
 <area shape="rect" id="node3" href="../DatabaseConversionFactory.html" title="&lt;TABLE&gt;" alt="" coords="191,6,387,71"/>
 <area shape="rect" id="node4_3" href="./DatabaseConversionFactoryImpl.html" title="net.ljcomputing.database.factory.impl.DatabaseConversionFactoryImpl" alt="" coords="191,131,388,157"/>

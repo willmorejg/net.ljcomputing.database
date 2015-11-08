@@ -88,7 +88,7 @@ public class DatabaseConversionFactoryImpl
    * #createConversionService(net.ljcomputing.database.strategy.DatabaseConversionStrategyType.Type)
    */
   public DatabaseConversionService createConversionService(
-      DatabaseConversionStrategyType.Type conversionStrategy) throws Exception {
+      DatabaseConversionStrategyType conversionStrategy) throws Exception {
     DatabaseConversionStrategy strategy = conversionStrategy.strategy();
     ConversionServiceContext ctx = strategy.getContext();
     ConversionServiceContext context = new DatabaseConversionServiceContext(

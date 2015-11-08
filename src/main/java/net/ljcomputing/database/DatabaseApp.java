@@ -85,15 +85,15 @@ public class DatabaseApp implements CommandLineRunner {
       outputDirectory.mkdir();
 
       DatabaseConversionService conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.Type.CLASS);
+          .createConversionService(DatabaseConversionStrategyType.CLASS);
       conversionService.process(databaseTables);
 
       conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.Type.XML);
+          .createConversionService(DatabaseConversionStrategyType.XML);
       conversionService.process(databaseTables);
 
       conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.Type.JSON);
+          .createConversionService(DatabaseConversionStrategyType.JSON);
       conversionService.process(databaseTables);
     } catch (Exception e) {
       logger.error("An exception occured: ", e);

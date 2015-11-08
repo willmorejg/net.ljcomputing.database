@@ -9,11 +9,42 @@ digraph G {
 	node [fontname="Helvetica",fontsize=10,shape=plaintext];
 	nodesep=0.25;
 	ranksep=0.5;
-	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType
-	c666 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DatabaseConversionStrategyType.html">
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategy
+	c641 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategy" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DatabaseConversionStrategy.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
+<tr><td align="center" balign="center"> DatabaseConversionStrategy </td></tr>
+		</table></td></tr>
+		</table>>, URL="./DatabaseConversionStrategy.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType
+	c642 [label=<<table title="net.ljcomputing.database.strategy.DatabaseConversionStrategyType" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./DatabaseConversionStrategyType.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;enumeration&#187; </td></tr>
 <tr><td align="center" balign="center"> DatabaseConversionStrategyType </td></tr>
 		</table></td></tr>
 		</table>>, URL="./DatabaseConversionStrategyType.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.database.factory.DatabaseConversionFactory
+	c648 [label=<<table title="net.ljcomputing.database.factory.DatabaseConversionFactory" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../factory/DatabaseConversionFactory.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> &#171;interface&#187; </td></tr>
+<tr><td align="center" balign="center"> DatabaseConversionFactory </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.factory </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../factory/DatabaseConversionFactory.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	// net.ljcomputing.database.factory.impl.DatabaseConversionFactoryImpl
+	c649 [label=<<table title="net.ljcomputing.database.factory.impl.DatabaseConversionFactoryImpl" border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../factory/impl/DatabaseConversionFactoryImpl.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+<tr><td align="center" balign="center"> DatabaseConversionFactoryImpl </td></tr>
+<tr><td align="center" balign="center"><font point-size="7.0"> net.ljcomputing.database.factory.impl </font></td></tr>
+		</table></td></tr>
+		</table>>, URL="../factory/impl/DatabaseConversionFactoryImpl.html", fontname="Helvetica", fontcolor="black", fontsize=9.0];
+	//net.ljcomputing.database.factory.impl.DatabaseConversionFactoryImpl implements net.ljcomputing.database.factory.DatabaseConversionFactory
+	c648:p -> c649:p [dir=back,arrowtail=empty,style=dashed];
+	// net.ljcomputing.database.strategy.DatabaseConversionStrategyType NAVASSOC net.ljcomputing.database.strategy.DatabaseConversionStrategy
+	c642:p -> c641:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
+	// net.ljcomputing.database.factory.DatabaseConversionFactory DEPEND net.ljcomputing.database.strategy.DatabaseConversionStrategyType
+	c648:p -> c642:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.database.factory.impl.DatabaseConversionFactoryImpl DEPEND net.ljcomputing.database.strategy.DatabaseConversionStrategyType
+	c649:p -> c642:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 
