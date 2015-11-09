@@ -19,7 +19,6 @@ package net.ljcomputing.database.factory.impl;
 import freemarker.template.Configuration;
 
 import net.ljcomputing.database.context.ConversionServiceContext;
-import net.ljcomputing.database.context.impl.DatabaseConversionServiceContext;
 import net.ljcomputing.database.factory.DatabaseConversionFactory;
 import net.ljcomputing.database.servcie.DatabaseConversionService;
 import net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter;
@@ -90,10 +89,8 @@ public class DatabaseConversionFactoryImpl
   public DatabaseConversionService createConversionService(
       DatabaseConversionStrategyType conversionStrategy) throws Exception {
     DatabaseConversionStrategy strategy = conversionStrategy.strategy();
-    ConversionServiceContext ctx = strategy.getContext();
-    ConversionServiceContext context = new DatabaseConversionServiceContext(
-        outputDirectoryPath, freemarkerConfiguration, ctx.getOutputTemplate(),
-        ctx.getFileSuffix());
+    ConversionServiceContext context = strategy.getContext();
+    context.createFreeMarkerContext(outputDirectoryPath, freemarkerConfiguration);
 
     logger.debug("context : {}", context);
     return new DatabaseUsingTemplateConverter(context);

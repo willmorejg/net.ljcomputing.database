@@ -36,9 +36,9 @@ public class DatabaseConversionServiceContext
    */
   public DatabaseConversionServiceContext(String outputDirectoryPath,
       Configuration freemarkerConfiguration, String template, String suffix) {
-    super(outputDirectoryPath, freemarkerConfiguration);
     super.outputTemplate = template;
     super.fileSuffix = suffix;
+    createFreeMarkerContext(outputDirectoryPath, freemarkerConfiguration);
   }
 
 }

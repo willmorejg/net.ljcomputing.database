@@ -16,8 +16,6 @@
 
 package net.ljcomputing.database.context.impl;
 
-import freemarker.template.Configuration;
-
 /**
  * The XML database conversion service context definition.
  *
@@ -28,13 +26,8 @@ public class XmlDatabaseConversionServiceContext
 
   /**
    * Instantiates a new XML database conversion service context.
-   *
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
    */
-  public XmlDatabaseConversionServiceContext(String outputDirectoryPath,
-      Configuration freemarkerConfiguration) {
-    super(outputDirectoryPath, freemarkerConfiguration);
+  public XmlDatabaseConversionServiceContext() {
     super.outputTemplate = "xmlTemplate.ftl";
     super.fileSuffix = "xml";
   }

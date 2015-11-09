@@ -28,7 +28,10 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 public class XmlConversionStrategy extends AbstractDatabaseConversionStrategy
     implements DatabaseConversionStrategy {
 
+  /**
+   * Instantiates a new xml conversion strategy.
+   */
   public XmlConversionStrategy() {
-    context = new XmlDatabaseConversionServiceContext(null, null);
+    context = new XmlDatabaseConversionServiceContext();
   }
 }

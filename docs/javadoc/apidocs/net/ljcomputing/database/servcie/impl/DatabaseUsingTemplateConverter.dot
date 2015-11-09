@@ -51,10 +51,10 @@ digraph G {
 	c747:p -> c771:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.ljcomputing.database.model.DatabaseTables NAVASSOC net.ljcomputing.database.model.DatabaseTable
 	c764:p -> c765:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTables
-	c747:p -> c764:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTable
 	c747:p -> c765:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTables
+	c747:p -> c764:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.ljcomputing.database.servcie.DatabaseConversionService DEPEND net.ljcomputing.database.model.DatabaseTables
 	c750:p -> c764:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// freemarker.template.Configuration

@@ -28,7 +28,10 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 public class ClassConversionStrategy extends AbstractDatabaseConversionStrategy
     implements DatabaseConversionStrategy {
 
+  /**
+   * Instantiates a new class conversion strategy.
+   */
   public ClassConversionStrategy() {
-    context = new ClassDatabaseConversionServiceContext(null, null);
+    context = new ClassDatabaseConversionServiceContext();
   }
 }

@@ -28,7 +28,10 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 public class JsonConversionStrategy extends AbstractDatabaseConversionStrategy
     implements DatabaseConversionStrategy {
 
+  /**
+   * Instantiates a new json conversion strategy.
+   */
   public JsonConversionStrategy() {
-    context = new JsonDatabaseConversionServiceContext(null, null);
+    context = new JsonDatabaseConversionServiceContext();
   }
 }

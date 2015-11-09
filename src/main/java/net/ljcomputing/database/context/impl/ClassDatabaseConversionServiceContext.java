@@ -16,8 +16,6 @@
 
 package net.ljcomputing.database.context.impl;
 
-import freemarker.template.Configuration;
-
 /**
  * The class database conversion service context definition.
  *
@@ -28,13 +26,8 @@ public class ClassDatabaseConversionServiceContext
 
   /**
    * Instantiates a new class database conversion service context.
-   *
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
    */
-  public ClassDatabaseConversionServiceContext(String outputDirectoryPath,
-      Configuration freemarkerConfiguration) {
-    super(outputDirectoryPath, freemarkerConfiguration);
+  public ClassDatabaseConversionServiceContext() {
     super.outputTemplate = "classTemplate.ftl";
     super.fileSuffix = "java";
   }

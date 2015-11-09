@@ -14,7 +14,6 @@
    limitations under the License.
  */
 
-
 package net.ljcomputing.database.context;
 
 import freemarker.template.Configuration;
@@ -26,6 +25,15 @@ import freemarker.template.Configuration;
  *
  */
 public interface ConversionServiceContext {
+
+  /**
+   * Creates the FreeMarker context.
+   *
+   * @param outputDirectoryPath the output directory path
+   * @param freemarkerConfiguration the FreeMarker configuration
+   */
+  public void createFreeMarkerContext(String outputDirectoryPath,
+      Configuration freemarkerConfiguration);
 
   /**
    * Gets the output directory path.
@@ -47,6 +55,7 @@ public interface ConversionServiceContext {
    * @return the file suffix
    */
   public String getFileSuffix();
+
   /**
    * Gets the Freemarker configuration.
    *

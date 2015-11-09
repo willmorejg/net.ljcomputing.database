@@ -16,8 +16,6 @@
 
 package net.ljcomputing.database.context.impl;
 
-import freemarker.template.Configuration;
-
 /**
  * The JSON database conversion service context definition.
  *
@@ -28,13 +26,8 @@ public class JsonDatabaseConversionServiceContext
 
   /**
    * Instantiates a new JSON database conversion service context.
-   *
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
    */
-  public JsonDatabaseConversionServiceContext(String outputDirectoryPath,
-      Configuration freemarkerConfiguration) {
-    super(outputDirectoryPath, freemarkerConfiguration);
+  public JsonDatabaseConversionServiceContext() {
     super.outputTemplate = "jsonTemplate.ftl";
     super.fileSuffix = "json";
   }

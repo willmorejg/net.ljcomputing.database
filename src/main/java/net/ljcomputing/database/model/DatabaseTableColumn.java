@@ -147,6 +147,8 @@ public class DatabaseTableColumn {
 
     /**
      * Instantiates a new builder.
+     *
+     * @param name the name
      */
     public Builder(String name) {
       this.name = name;

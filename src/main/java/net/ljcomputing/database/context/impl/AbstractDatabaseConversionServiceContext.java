@@ -43,14 +43,21 @@ public abstract class AbstractDatabaseConversionServiceContext
 
   /**
    * Instantiates a new database conversion service context from builder.
-   *
-   * @param outputDirectoryPath the output directory path
-   * @param freemarkerConfiguration the freemarker configuration
    */
-  public AbstractDatabaseConversionServiceContext(String outputDirectoryPath,
+  public AbstractDatabaseConversionServiceContext() {
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see net.ljcomputing.database.context.ConversionServiceContext#
+   * createFreeMarkerContext(java.lang.String, freemarker.template.Configuration)
+   */
+  public void createFreeMarkerContext(String outputDirectoryPath,
       Configuration freemarkerConfiguration) {
     this.outputDirectoryPath = outputDirectoryPath;
     this.freemarkerConfiguration = freemarkerConfiguration;
+
   }
 
   /*
