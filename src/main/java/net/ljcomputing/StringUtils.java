@@ -16,8 +16,6 @@
 
 package net.ljcomputing;
 
-import org.apache.commons.lang3.text.WordUtils;
-
 /**
  * A String utility class.
  * 
@@ -41,10 +39,46 @@ public class StringUtils {
   public static final String camelCase(String in) {
     StringBuffer buf = new StringBuffer();
 
-    buf.append(WordUtils.capitalizeFully(in, new char[] { '_', ' ' })
-        .replaceAll("_", "").replaceAll(" ", ""));
+    if (null != in && !in.trim().isEmpty()) {
+      char[] separators = new char[] { '_', '.' };
+      char[] chars = in.trim().toCharArray();
+      
+      buf.append(String.valueOf(chars[0]).toUpperCase());
+      
+      for (int i = 1; i < chars.length; ) {
+        if (!isSeparator(chars[i], separators)) {
+          buf.append(chars[i]);
+        } else {
+          if (i < chars.length) {
+            buf.append(String.valueOf(chars[++i]).toUpperCase());
+          }
+        }
 
+        i++;
+      }
+    }
+    
     return buf.toString();
+  }
+
+  /**
+   * Checks if is separator.
+   *
+   * @param ch the ch
+   * @param separators the separators
+   * @return true, if is separator
+   */
+  private static boolean isSeparator(char ch, char... separators) {
+    boolean result = false;
+
+    for (char check : separators) {
+      if (check == ch) {
+        result = true;
+        break;
+      }
+    }
+
+    return result;
   }
 
   /**
