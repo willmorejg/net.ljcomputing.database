@@ -38,9 +38,9 @@ digraph G {
 	c668:p -> c669:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// net.ljcomputing.database.model.DatabaseTable NAVASSOC net.ljcomputing.database.model.DatabaseTableColumn
 	c669:p -> c670:p [taillabel="", label="", headlabel="*", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTable
-	c651:p -> c669:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTables
 	c651:p -> c668:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter DEPEND net.ljcomputing.database.model.DatabaseTable
+	c651:p -> c669:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

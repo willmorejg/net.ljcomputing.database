@@ -24,11 +24,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'LJ Computing - Database 1.0.1-SNAPSHOT API'
+'LJ Computing - Database 1.1.1-SNAPSHOT API'
 -link
 'http://commons.apache.org/proper/commons-lang/apidocs'
 -linkoffline
-'http://docs.oracle.com/javase/6/docs/api' '/home/jim/workspace/net.ljcomputing.database/target/javadoc-bundle-options'
+'http://docs.oracle.com/javase/8/docs/api' '/home/jim/workspace/net.ljcomputing.database/target/javadoc-bundle-options'
 -linksource
 -tag
 "todo:a:To Do:"
@@ -37,4 +37,4 @@
 -use
 -version
 -windowtitle
-'LJ Computing - Database 1.0.1-SNAPSHOT API'
+'LJ Computing - Database 1.1.1-SNAPSHOT API'

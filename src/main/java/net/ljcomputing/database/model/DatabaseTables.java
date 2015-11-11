@@ -16,6 +16,9 @@
 
 package net.ljcomputing.database.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -39,6 +42,9 @@ import javax.sql.DataSource;
  */
 @Component
 public class DatabaseTables {
+  
+  /** The logger. */
+  private static Logger logger = LoggerFactory.getLogger(DatabaseTables.class);
 
   /** The Constant TABLE_CATALOG. */
   static final String TABLE_CATALOG = "TABLE_CAT";
@@ -132,7 +138,10 @@ public class DatabaseTables {
       // in the ResultSetMetaData class, we have to execute a query -
       // the query returns no rows from the table
       ResultSet rs = stmt
-          .executeQuery("select * from " + table.getTableName() + " where 1=0");
+          .executeQuery("select * from " + table.getTableName() + " where 1=1");
+      rs.first();
+      
+      logger.info("table : {}", table);
 
       ResultSetMetaData rsmdt = rs.getMetaData();
       int columnCount = rsmdt.getColumnCount();
