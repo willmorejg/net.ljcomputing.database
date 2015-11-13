@@ -42,6 +42,9 @@ public class DatabaseTableColumn {
 
   /** indicates if the column is nullable. */
   private Boolean nullable;
+  
+  /** The data type. */
+  private Integer dataType;
 
   /**
    * Instantiates a new database table column.
@@ -57,6 +60,7 @@ public class DatabaseTableColumn {
     size = rsmd.getColumnDisplaySize(columnNumber);
     className = SqlTypeMap.toClass(rsmd.getColumnType(columnNumber))
         .getSimpleName();
+    dataType = rsmd.getColumnType(columnNumber);
     nullable = (rsmd.isNullable(columnNumber) == 0);
   }
 
@@ -70,6 +74,7 @@ public class DatabaseTableColumn {
     this.typeName = builder.typeName;
     this.size = builder.size;
     this.className = builder.className;
+    this.dataType = builder.dataType;
   }
 
   /**
@@ -117,6 +122,15 @@ public class DatabaseTableColumn {
     return nullable;
   }
 
+  /**
+   * Gat data type.
+   *
+   * @return the integer
+   */
+  public Integer gatDataType() {
+    return dataType;
+  }
+
   /*
    * (non-Javadoc)
    * 
@@ -125,7 +139,7 @@ public class DatabaseTableColumn {
   @Override
   public String toString() {
     return "Column [name=" + name + ", typeName=" + typeName + ", size=" + size
-        + ", className=" + className + "]";
+        + ", className=" + className + ", dataType=" + dataType + "]";
   }
 
   /**
@@ -144,6 +158,9 @@ public class DatabaseTableColumn {
 
     /** The class name. */
     private String className;
+    
+    /** The data type. */
+    private Integer dataType;
 
     /**
      * Instantiates a new builder.
@@ -184,6 +201,17 @@ public class DatabaseTableColumn {
      */
     public Builder className(String className) {
       this.className = className;
+      return this;
+    }
+
+    /**
+     * Data type.
+     *
+     * @param dataType the data type
+     * @return the builder
+     */
+    public Builder dataType(Integer dataType) {
+      this.dataType = dataType;
       return this;
     }
 
