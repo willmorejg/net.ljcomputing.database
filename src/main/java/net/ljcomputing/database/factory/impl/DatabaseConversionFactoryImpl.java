@@ -50,7 +50,7 @@ public class DatabaseConversionFactoryImpl
   private static DatabaseConversionFactoryImpl instance;
 
   /** The output path. */
-  @Value("${database.output.path:out}")
+  @Value("${database.output.path:out/}")
   private String outputDirectoryPath;
 
   /** The Freemarker configuration. */

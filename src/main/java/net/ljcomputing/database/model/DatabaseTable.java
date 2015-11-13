@@ -37,6 +37,9 @@ public class DatabaseTable {
   /** The table name. */
   private String tableName;
 
+  /** The SQL to associate with the database table. */
+  private String sql;
+
   /** The columns. */
   private List<DatabaseTableColumn> columns = new ArrayList<DatabaseTableColumn>();
 
@@ -47,7 +50,8 @@ public class DatabaseTable {
    * @param tableSchema the table schema
    * @param tableName the table name
    */
-  public DatabaseTable(String tableCatalog, String tableSchema, String tableName) {
+  public DatabaseTable(String tableCatalog, String tableSchema,
+      String tableName) {
     this.tableCatalog = tableCatalog;
     this.tableSchema = tableSchema;
     this.tableName = tableName;
@@ -61,7 +65,7 @@ public class DatabaseTable {
    */
   public DatabaseTable(ResultSet rs) throws Exception {
     this(rs.getString(DatabaseTables.TABLE_CATALOG),
-        rs.getString(DatabaseTables.TABLE_SCHEMA), 
+        rs.getString(DatabaseTables.TABLE_SCHEMA),
         rs.getString(DatabaseTables.TABLE_NAME));
   }
 
@@ -100,7 +104,7 @@ public class DatabaseTable {
   public List<DatabaseTableColumn> getColumns() {
     return columns;
   }
-  
+
   /**
    * Adds the column.
    *
@@ -110,14 +114,24 @@ public class DatabaseTable {
     columns.add(column);
   }
 
-  /* (non-Javadoc)
+  public String getSql() {
+    return sql;
+  }
+
+  public void setSql(String sql) {
+    this.sql = sql;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
    * @see java.lang.Object#toString()
    */
   @Override
   public String toString() {
-    return "Table [tableCatalog=" + tableCatalog + ", tableSchema=" 
-        + tableSchema + ", tableName=" + tableName
-        + ", columns=" + columns + "]";
+    return "Table [tableCatalog=" + tableCatalog + ", tableSchema="
+        + tableSchema + ", tableName=" + tableName + ", columns=" + columns
+        + ", sql=" + sql + "]";
   }
 
 }
