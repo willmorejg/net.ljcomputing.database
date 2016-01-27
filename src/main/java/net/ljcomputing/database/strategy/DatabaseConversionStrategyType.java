@@ -17,6 +17,7 @@
 package net.ljcomputing.database.strategy;
 
 import net.ljcomputing.database.strategy.impl.ClassConversionStrategy;
+import net.ljcomputing.database.strategy.impl.JsConversionStrategy;
 import net.ljcomputing.database.strategy.impl.JsonConversionStrategy;
 import net.ljcomputing.database.strategy.impl.SqlConversionStrategy;
 import net.ljcomputing.database.strategy.impl.XmlConversionStrategy;
@@ -29,7 +30,8 @@ import net.ljcomputing.database.strategy.impl.XmlConversionStrategy;
  */
 public enum DatabaseConversionStrategyType {
   CLASS(new ClassConversionStrategy()), XML(new XmlConversionStrategy()), JSON(
-      new JsonConversionStrategy()), SQL(new SqlConversionStrategy());
+      new JsonConversionStrategy()), SQL(new SqlConversionStrategy()),
+  JS(new JsConversionStrategy());
 
   /** The database conversion strategy. */
   private DatabaseConversionStrategy strategy;

@@ -95,6 +95,10 @@ public class DatabaseApp implements CommandLineRunner {
       conversionService = databaseConversionFactory
           .createConversionService(DatabaseConversionStrategyType.JSON);
       conversionService.process(databaseTables);
+
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.JS);
+      conversionService.process(databaseTables);
     } catch (Exception e) {
       logger.error("An exception occured: ", e);
     }

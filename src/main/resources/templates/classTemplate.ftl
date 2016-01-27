@@ -1,6 +1,8 @@
-
+@Entity
+@Table("${root.tableName}")
 public class ${stringUtils.camelCase(root.tableName)} {
 	<#list root.columns as column>
+    @Column(name = "${column.name}")
     private ${column.className} ${stringUtils.memberCase(column.name)};
 	</#list>
 
