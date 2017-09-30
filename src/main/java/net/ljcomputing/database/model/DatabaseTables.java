@@ -120,7 +120,7 @@ public class DatabaseTables {
    */
   private synchronized void init(Connection conn) throws Exception {
     DatabaseMetaData dbmd = conn.getMetaData();
-    ResultSet rsdb = dbmd.getTables(null, null, "%", null);
+    ResultSet rsdb = dbmd.getTables(null, null, "%", new String[] {"TABLE"});
 
     tablesMap.put("tables", tables);
 
