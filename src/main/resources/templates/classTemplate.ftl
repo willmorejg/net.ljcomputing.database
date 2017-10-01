@@ -2,7 +2,12 @@
 @Table("${root.tableName}")
 public class ${stringUtils.camelCase(root.tableName)} {
 	<#list root.columns as column>
+	  <#if (column.foreignKey()) == true>
+	  @OneToOne
+    @JoinColumn(name = "${column.name}")
+	  <#else>
     @Column(name = "${column.name}")
+    </#if>
     private ${column.className} ${stringUtils.memberCase(column.name)};
 	</#list>
 

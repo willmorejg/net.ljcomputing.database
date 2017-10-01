@@ -45,6 +45,9 @@ public class DatabaseTableColumn {
   
   /** The data type. */
   private Integer dataType;
+  
+  /** The foreign key. */
+  private boolean foreignKey = false;
 
   /**
    * Instantiates a new database table column.
@@ -75,6 +78,7 @@ public class DatabaseTableColumn {
     this.size = builder.size;
     this.className = builder.className;
     this.dataType = builder.dataType;
+    this.foreignKey = builder.foreignKey;
   }
 
   /**
@@ -112,6 +116,15 @@ public class DatabaseTableColumn {
   public String getClassName() {
     return className;
   }
+  
+  /**
+   * Sets the class name.
+   *
+   * @param className the new class name
+   */
+  public void setClassName(String className) {
+    this.className = className;
+  }
 
   /**
    * Checks if the column is nullable.
@@ -123,12 +136,30 @@ public class DatabaseTableColumn {
   }
 
   /**
-   * Gat data type.
+   * Gets the data type.
    *
    * @return the integer
    */
   public Integer gatDataType() {
     return dataType;
+  }
+  
+  /**
+   * Checks if is foreign key.
+   *
+   * @return the boolean
+   */
+  public boolean foreignKey() {
+    return foreignKey;
+  }
+  
+  /**
+   * Sets the foreign key.
+   *
+   * @param foreignKey the new foreign key
+   */
+  public void setForeignKey(Boolean foreignKey) {
+    this.foreignKey = foreignKey;
   }
 
   /*
@@ -161,6 +192,9 @@ public class DatabaseTableColumn {
     
     /** The data type. */
     private Integer dataType;
+    
+    /** The foreign key. */
+    private boolean foreignKey = false;
 
     /**
      * Instantiates a new builder.
@@ -212,6 +246,17 @@ public class DatabaseTableColumn {
      */
     public Builder dataType(Integer dataType) {
       this.dataType = dataType;
+      return this;
+    }
+    
+    /**
+     * Foreign key.
+     *
+     * @param foreignKey the foreign key
+     * @return the builder
+     */
+    public Builder foreignKey(boolean foreignKey) {
+      this.foreignKey = foreignKey;
       return this;
     }
 

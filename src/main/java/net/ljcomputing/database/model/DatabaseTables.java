@@ -16,10 +16,6 @@
 
 package net.ljcomputing.database.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
-
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -29,8 +25,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.sql.DataSource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+import net.ljcomputing.StringUtils;
 
 /**
  * A POJO to read a database schema and obtain a List of database table definitions.
@@ -39,6 +44,9 @@ import javax.sql.DataSource;
  */
 @Component
 public class DatabaseTables {
+
+  /** The SFL4J logger. */
+  private static Logger logger = LoggerFactory.getLogger(DatabaseTables.class);
 
   /** The Constant TABLE_CATALOG. */
   static final String TABLE_CATALOG = "TABLE_CAT";
@@ -126,6 +134,10 @@ public class DatabaseTables {
 
     while (rsdb.next()) {
       DatabaseTable table = new DatabaseTable(rsdb);
+
+      logger.info("TABLE: {}", table.getTableName());
+      Map<String, Map<String, String>> keys = getForeignKeys(dbmd, table.getTableName());
+
       Statement stmt = conn.createStatement();
 
       // in order to get information about the table directly using the methods
@@ -138,14 +150,56 @@ public class DatabaseTables {
       int columnCount = rsmdt.getColumnCount();
 
       for (int i = 1; i <= columnCount; i++) {
-        table.addColumn(new DatabaseTableColumn(rsmdt, i));
+        DatabaseTableColumn dbColumn = new DatabaseTableColumn(rsmdt, i);
+        
+        //TODO - refactor
+        if (keys.containsKey(dbColumn.getName())) {
+          String columnName = dbColumn.getName();
+          Map<String, String> map = keys.get(columnName);
+          Set<String> keySet = map.keySet();
+          Object[] keySetArray = keySet.toArray();
+          dbColumn.setClassName(StringUtils.camelCase(keySetArray[0].toString()));
+          dbColumn.setForeignKey(true);
+        }
+        
+        table.addColumn(dbColumn);
       }
 
       rs.close();
       stmt.close();
-
+      
       tables.add(table);
     }
+  }
+  
+  private Map<String, Map<String, String>> getForeignKeys(DatabaseMetaData dbmd, String tableName) 
+      throws Exception {
+    Map<String, Map<String, String>> keys = new HashMap<>();
+    ResultSet rsdb = dbmd.getImportedKeys(null, null, tableName);
+
+    while (rsdb.next()) {
+      ResultSetMetaData rsmd = rsdb.getMetaData();
+      int columnCount = rsmd.getColumnCount();
+
+      for (int column = 1; column != columnCount; column++) {
+        String columnName = rsmd.getColumnName(column);
+        Object columnValue = rsdb.getObject(column);
+        logger.info("{} : {}", columnName, columnValue != null ? columnValue.toString() : "");
+      }
+
+      String myColumn = rsdb.getObject("fkcolumn_name").toString();
+      String otherTable = rsdb.getObject("pktable_name").toString();
+      String otherColumn = rsdb.getObject("pkcolumn_name").toString();
+
+      Map<String, String> map = new HashMap<String, String>();
+      map.put(otherTable, otherColumn);
+      keys.put(myColumn, map);
+    }
+
+    rsdb.close();
+
+    logger.info("    map: {}", keys);
+    return keys;
   }
 
   /**
