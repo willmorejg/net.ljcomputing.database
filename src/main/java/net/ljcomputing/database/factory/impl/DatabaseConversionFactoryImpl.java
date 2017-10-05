@@ -16,21 +16,20 @@
 
 package net.ljcomputing.database.factory.impl;
 
-import freemarker.template.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Service;
 
+import freemarker.template.Configuration;
 import net.ljcomputing.database.context.ConversionServiceContext;
 import net.ljcomputing.database.factory.DatabaseConversionFactory;
 import net.ljcomputing.database.servcie.DatabaseConversionService;
 import net.ljcomputing.database.servcie.impl.DatabaseUsingTemplateConverter;
 import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 import net.ljcomputing.database.strategy.DatabaseConversionStrategyType;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 
 /**
  * Database conversion service factory - creates a conversion service based upon
@@ -56,6 +55,9 @@ public class DatabaseConversionFactoryImpl
   /** The Freemarker configuration. */
   @Autowired
   private Configuration freemarkerConfiguration;
+  
+  @Autowired
+  private Environment env;
 
   /**
    * Instantiates a new database conversion factory impl.
@@ -89,8 +91,11 @@ public class DatabaseConversionFactoryImpl
   public DatabaseConversionService createConversionService(
       DatabaseConversionStrategyType conversionStrategy) throws Exception {
     DatabaseConversionStrategy strategy = conversionStrategy.strategy();
+    logger.info("template: {}", env.getProperty(conversionStrategy.propertiesPrefix() + ".template"));
     ConversionServiceContext context = strategy.getContext();
     context.createFreeMarkerContext(outputDirectoryPath, freemarkerConfiguration);
+    context.setOutputTemplate(env.getProperty(conversionStrategy.propertiesPrefix() + ".template"));
+    context.setFileSuffix(env.getProperty(conversionStrategy.propertiesPrefix() + ".suffix"));
 
     logger.debug("context : {}", context);
     return new DatabaseUsingTemplateConverter(context);

@@ -23,13 +23,4 @@ package net.ljcomputing.database.context.impl;
  */
 public class JsDatabaseConversionServiceContext
     extends AbstractDatabaseConversionServiceContext {
-
-  /**
-   * Instantiates a new JSON database conversion service context.
-   */
-  public JsDatabaseConversionServiceContext() {
-    super.outputTemplate = "jsTemplate.ftl";
-    super.fileSuffix = "js";
-  }
-
 }

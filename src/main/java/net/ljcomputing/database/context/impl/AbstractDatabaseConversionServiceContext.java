@@ -26,8 +26,7 @@ import net.ljcomputing.database.context.ConversionServiceContext;
  * @author James G. Willmore
  *
  */
-public abstract class AbstractDatabaseConversionServiceContext
-    implements ConversionServiceContext {
+public abstract class AbstractDatabaseConversionServiceContext implements ConversionServiceContext {
 
   /** The output path. */
   private String outputDirectoryPath;
@@ -51,10 +50,10 @@ public abstract class AbstractDatabaseConversionServiceContext
    * (non-Javadoc)
    * 
    * @see net.ljcomputing.database.context.ConversionServiceContext#
-   * createFreeMarkerContext(java.lang.String, freemarker.template.Configuration)
+   * createFreeMarkerContext(java.lang.String,
+   * freemarker.template.Configuration)
    */
-  public void createFreeMarkerContext(String outputDirectoryPath,
-      Configuration freemarkerConfiguration) {
+  public void createFreeMarkerContext(String outputDirectoryPath, Configuration freemarkerConfiguration) {
     this.outputDirectoryPath = outputDirectoryPath;
     this.freemarkerConfiguration = freemarkerConfiguration;
 
@@ -85,10 +84,34 @@ public abstract class AbstractDatabaseConversionServiceContext
    * (non-Javadoc)
    * 
    * @see
+   * net.ljcomputing.database.context.ConversionServiceContext#setOutputTemplate
+   * (java.lang.String)
+   */
+  @Override
+  public void setOutputTemplate(String template) {
+    this.outputTemplate = template;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
    * net.ljcomputing.database.context.ConversionServiceContext#getFileSuffix()
    */
   public String getFileSuffix() {
     return fileSuffix;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * net.ljcomputing.database.context.ConversionServiceContext#setFileSuffix(
+   * java.lang.String)
+   */
+  @Override
+  public void setFileSuffix(String suffix) {
+    this.fileSuffix = suffix;
   }
 
   /*
@@ -108,9 +131,9 @@ public abstract class AbstractDatabaseConversionServiceContext
    */
   @Override
   public String toString() {
-    return "DatabaseConversionServiceContext [outputDirectoryPath="
-        + outputDirectoryPath + ", outputTemplate=" + outputTemplate
-        + ", fileSuffix=" + fileSuffix + ", freemarkerConfiguration="
-        + freemarkerConfiguration + "]";
+    return "DatabaseConversionServiceContext [outputDirectoryPath=" + outputDirectoryPath
+        + ", freemarkerConfiguration=" + freemarkerConfiguration 
+        + ", outputTemplate=" + outputTemplate
+        + ", fileSuffix=" + fileSuffix + "]";
   }
 }

@@ -29,20 +29,26 @@ import net.ljcomputing.database.strategy.impl.XmlConversionStrategy;
  *
  */
 public enum DatabaseConversionStrategyType {
-  CLASS(new ClassConversionStrategy()), XML(new XmlConversionStrategy()), JSON(
-      new JsonConversionStrategy()), SQL(new SqlConversionStrategy()),
-  JS(new JsConversionStrategy());
+  CLASS(new ClassConversionStrategy(), "class"), XML(new XmlConversionStrategy(), "xml"), JSON(
+      new JsonConversionStrategy(), "json"), SQL(new SqlConversionStrategy(), "sql"),
+  JS(new JsConversionStrategy(), "js");
 
   /** The database conversion strategy. */
   private DatabaseConversionStrategy strategy;
+  
+  /** The properties prefix. */
+  private String propertiesPrefix;
 
   /**
-     * Instantiates a new database conversion strategy type.
-     *
-     * @param strategy the strategy
-     */
-  private DatabaseConversionStrategyType(DatabaseConversionStrategy strategy) {
+   * Instantiates a new database conversion strategy type.
+   *
+   * @param strategy the strategy
+   * @param propertiesPrefix the properties prefix
+   */
+  private DatabaseConversionStrategyType(DatabaseConversionStrategy strategy,
+      String propertiesPrefix) {
     this.strategy = strategy;
+    this.propertiesPrefix = propertiesPrefix;
   }
 
   /**
@@ -52,5 +58,14 @@ public enum DatabaseConversionStrategyType {
    */
   public DatabaseConversionStrategy strategy() {
     return strategy;
+  }
+  
+  /**
+   * Get the properties prefix for the database conversion strategy.
+   *
+   * @return the string
+   */
+  public String propertiesPrefix() {
+    return propertiesPrefix;
   }
 }

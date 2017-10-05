@@ -23,13 +23,4 @@ package net.ljcomputing.database.context.impl;
  */
 public class ClassDatabaseConversionServiceContext
     extends AbstractDatabaseConversionServiceContext {
-
-  /**
-   * Instantiates a new class database conversion service context.
-   */
-  public ClassDatabaseConversionServiceContext() {
-    super.outputTemplate = "classTemplate.ftl";
-    super.fileSuffix = "java";
-  }
-
 }

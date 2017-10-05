@@ -23,13 +23,4 @@ package net.ljcomputing.database.context.impl;
  */
 public class XmlDatabaseConversionServiceContext
     extends AbstractDatabaseConversionServiceContext {
-
-  /**
-   * Instantiates a new XML database conversion service context.
-   */
-  public XmlDatabaseConversionServiceContext() {
-    super.outputTemplate = "xmlTemplate.ftl";
-    super.fileSuffix = "xml";
-  }
-
 }

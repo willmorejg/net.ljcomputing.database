@@ -135,7 +135,6 @@ public class DatabaseTables {
     while (rsdb.next()) {
       DatabaseTable table = new DatabaseTable(rsdb);
 
-      logger.info("TABLE: {}", table.getTableName());
       Map<String, Map<String, String>> keys = getForeignKeys(dbmd, table.getTableName());
 
       Statement stmt = conn.createStatement();
@@ -184,7 +183,6 @@ public class DatabaseTables {
       for (int column = 1; column != columnCount; column++) {
         String columnName = rsmd.getColumnName(column);
         Object columnValue = rsdb.getObject(column);
-        logger.info("{} : {}", columnName, columnValue != null ? columnValue.toString() : "");
       }
 
       String myColumn = rsdb.getObject("fkcolumn_name").toString();
@@ -198,7 +196,6 @@ public class DatabaseTables {
 
     rsdb.close();
 
-    logger.info("    map: {}", keys);
     return keys;
   }
 

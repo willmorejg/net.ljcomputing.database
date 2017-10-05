@@ -48,6 +48,13 @@ public interface ConversionServiceContext {
    * @return the output template
    */
   public String getOutputTemplate();
+  
+  /**
+   * Sets the output template.
+   *
+   * @param template the new output template
+   */
+  public void setOutputTemplate(String template);
 
   /**
    * Gets the file suffix.
@@ -55,6 +62,13 @@ public interface ConversionServiceContext {
    * @return the file suffix
    */
   public String getFileSuffix();
+  
+  /**
+   * Sets the file suffix.
+   *
+   * @param suffix the new file suffix
+   */
+  public void setFileSuffix(String suffix);
 
   /**
    * Gets the Freemarker configuration.
