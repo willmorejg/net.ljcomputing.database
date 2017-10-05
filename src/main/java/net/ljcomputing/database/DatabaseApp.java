@@ -90,25 +90,25 @@ public class DatabaseApp implements CommandLineRunner {
     try {
       logger.info("==================type: {}", types.getStrategyType("a"));
       
-//      File outputDirectory = new File(outputPath);
-//      outputDirectory.delete();
-//      outputDirectory.mkdir();
-//
-//      DatabaseConversionService conversionService = databaseConversionFactory
-//          .createConversionService(DatabaseConversionStrategyType.CLASS);
-//      conversionService.process(databaseTables);
-//
-//      conversionService = databaseConversionFactory
-//          .createConversionService(DatabaseConversionStrategyType.XML);
-//      conversionService.process(databaseTables);
-//
-//      conversionService = databaseConversionFactory
-//          .createConversionService(DatabaseConversionStrategyType.JSON);
-//      conversionService.process(databaseTables);
-//
-//      conversionService = databaseConversionFactory
-//          .createConversionService(DatabaseConversionStrategyType.JS);
-//      conversionService.process(databaseTables);
+      File outputDirectory = new File(outputPath);
+      outputDirectory.delete();
+      outputDirectory.mkdir();
+
+      DatabaseConversionService conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.CLASS);
+      conversionService.process(databaseTables);
+
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.XML);
+      conversionService.process(databaseTables);
+
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.JSON);
+      conversionService.process(databaseTables);
+
+      conversionService = databaseConversionFactory
+          .createConversionService(DatabaseConversionStrategyType.JS);
+      conversionService.process(databaseTables);
     } catch (Exception e) {
       logger.error("An exception occured: ", e);
     }
