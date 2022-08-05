@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing classes common to the net.ljcomputing code bases.
+ *package containing classes common to the net.ljcomputing code bases.
  * 
  * @author James G. Willmore
  *

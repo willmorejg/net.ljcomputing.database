@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing service interfaces.
+ *package containing service interfaces.
  * 
  * @author James G. Willmore
  *

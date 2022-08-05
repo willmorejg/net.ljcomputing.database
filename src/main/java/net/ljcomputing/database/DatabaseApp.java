@@ -16,15 +16,11 @@
 
 package net.ljcomputing.database;
 
-import net.ljcomputing.database.factory.DatabaseConversionFactory;
-import net.ljcomputing.database.model.DatabaseTables;
-import net.ljcomputing.database.servcie.DatabaseConversionService;
-import net.ljcomputing.database.strategy.DatabaseConversionStrategyType;
-import net.ljcomputing.database.strategy.DatabaseConversionStrategyTypes;
-
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -34,9 +30,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.env.Environment;
 
-import java.io.File;
+import net.ljcomputing.database.factory.DatabaseConversionFactory;
+import net.ljcomputing.database.model.DatabaseTables;
+import net.ljcomputing.database.servcie.DatabaseConversionService;
+import net.ljcomputing.database.strategy.DatabaseConversionStrategyType;
+import net.ljcomputing.database.strategy.DatabaseConversionStrategyTypes;
 
 /**
  * Configuration and command line runner for the net.ljcomputing.database application.
@@ -88,29 +87,31 @@ public class DatabaseApp implements CommandLineRunner {
    */
   public void run(String... args) throws Exception {
     try {
-      logger.info("==================type: {}", types.getStrategyType("a"));
+//      logger.info("==================type: {}", types.getStrategyType("a"));
       
       File outputDirectory = new File(outputPath);
-      outputDirectory.delete();
+      Files.delete(Path.of(outputPath));
       outputDirectory.mkdir();
 
-      DatabaseConversionService conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.CLASS);
-      conversionService.process(databaseTables);
+      DatabaseConversionService conversionService = null;
 
-      conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.XML);
-      conversionService.process(databaseTables);
+    //   DatabaseConversionService conversionService = databaseConversionFactory
+    //       .createConversionService(DatabaseConversionStrategyType.CLASS);
+    //   conversionService.process(databaseTables);
 
-      conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.JSON);
-      conversionService.process(databaseTables);
+    //  conversionService = databaseConversionFactory
+    //      .createConversionService(DatabaseConversionStrategyType.XML);
+    //  conversionService.process(databaseTables);
 
-      conversionService = databaseConversionFactory
-          .createConversionService(DatabaseConversionStrategyType.JS);
-      conversionService.process(databaseTables);
-    } catch (Exception e) {
-      logger.error("An exception occured: ", e);
+     conversionService = databaseConversionFactory
+         .createConversionService(DatabaseConversionStrategyType.JSON);
+     conversionService.process(databaseTables);
+
+    //  conversionService = databaseConversionFactory
+    //      .createConversionService(DatabaseConversionStrategyType.JS);
+    //  conversionService.process(databaseTables);
+    } catch (Exception exception) {
+      logger.error("An exception occured: ", exception);
     }
   }
 

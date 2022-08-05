@@ -17,7 +17,6 @@
 package net.ljcomputing.database.strategy.impl;
 
 import net.ljcomputing.database.context.impl.ClassDatabaseConversionServiceContext;
-import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 
 /**
  * Database conversion strategy using a class template.
@@ -25,8 +24,7 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
  * @author James G. Willmore
  *
  */
-public class ClassConversionStrategy extends AbstractDatabaseConversionStrategy
-    implements DatabaseConversionStrategy {
+public class ClassConversionStrategy extends AbstractDatabaseConversionStrategy {
 
   /**
    * Instantiates a new class conversion strategy.

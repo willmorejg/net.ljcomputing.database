@@ -6,8 +6,6 @@ package net.ljcomputing.database.strategy;
 
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +18,6 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "strategy")
 public class DatabaseConversionStrategyTypes {
-
-  private Logger logger = LoggerFactory.getLogger(DatabaseConversionStrategyTypes.class);
 
   /** The type. */
   private Map<String, DbConversionStrategyTypeProperties> type;

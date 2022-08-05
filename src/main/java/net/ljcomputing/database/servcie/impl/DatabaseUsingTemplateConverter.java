@@ -69,7 +69,7 @@ public class DatabaseUsingTemplateConverter extends
    */
   private Map<String, String> processTemplate(DatabaseTables databaseTables,
       String template) throws Exception {
-    Map<String, String> results = new HashMap<String, String>();
+    Map<String, String> results = new HashMap<>();
 
     for (DatabaseTable table : databaseTables.getTables()) {
       results.put(StringUtils.camelCase(table.getTableName()),

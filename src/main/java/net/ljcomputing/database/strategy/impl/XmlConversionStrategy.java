@@ -17,7 +17,6 @@
 package net.ljcomputing.database.strategy.impl;
 
 import net.ljcomputing.database.context.impl.XmlDatabaseConversionServiceContext;
-import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 
 /**
  * Database conversion strategy using a XML template.
@@ -25,8 +24,7 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
  * @author James G. Willmore
  *
  */
-public class XmlConversionStrategy extends AbstractDatabaseConversionStrategy
-    implements DatabaseConversionStrategy {
+public class XmlConversionStrategy extends AbstractDatabaseConversionStrategy {
 
   /**
    * Instantiates a new xml conversion strategy.

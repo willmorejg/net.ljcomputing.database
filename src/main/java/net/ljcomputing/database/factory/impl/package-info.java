@@ -15,7 +15,7 @@
  */
 
 /**
- *  Package containing database conversion factory implementations. 
+ * package containing database conversion factory implementations. 
  * 
  * @author James G. Willmore
  *

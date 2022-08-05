@@ -20,6 +20,9 @@ import net.ljcomputing.database.servcie.impl.SqlTypeMap;
 
 import java.sql.ResultSetMetaData;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A database table column representation.
  * 
@@ -27,6 +30,7 @@ import java.sql.ResultSetMetaData;
  *
  */
 public class DatabaseTableColumn {
+  private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseTableColumn.class);
 
   /** The name. */
   private String name;
@@ -61,8 +65,9 @@ public class DatabaseTableColumn {
     name = rsmd.getColumnName(columnNumber);
     typeName = rsmd.getColumnTypeName(columnNumber);
     size = rsmd.getColumnDisplaySize(columnNumber);
-    className = SqlTypeMap.toClass(rsmd.getColumnType(columnNumber))
-        .getSimpleName();
+    final Class<?> klass = SqlTypeMap.toClass(rsmd.getColumnType(columnNumber));
+    className = klass.getSimpleName();
+    LOGGER.debug("name: {}, className: {}, typeName: {}, typeNumber: {}", name, className, rsmd.getColumnTypeName(columnNumber), rsmd.getColumnType(columnNumber));
     dataType = rsmd.getColumnType(columnNumber);
     nullable = (rsmd.isNullable(columnNumber) == 0);
   }

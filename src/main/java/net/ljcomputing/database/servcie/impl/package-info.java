@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing service implementations.
+ *package containing service implementations.
  * 
  * @author James G. Willmore
  *

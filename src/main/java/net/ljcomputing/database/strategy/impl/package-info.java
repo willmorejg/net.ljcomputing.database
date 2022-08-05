@@ -15,7 +15,7 @@
  */
 
 /**
- *  Package containing database conversion implementation strategies.
+ * package containing database conversion implementation strategies.
  *  
  * @author James G. Willmore
  *

@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing database conversion factories. 
+ *package containing database conversion factories. 
  * 
  * @author James G. Willmore
  *

@@ -22,7 +22,8 @@ package net.ljcomputing;
  * @author James G. Willmore
  * 
  */
-public class StringUtils {
+public enum StringUtils {
+  INSTANCE;
 
   /**
    * <p>Return the camel case representation the incoming String.
@@ -37,24 +38,25 @@ public class StringUtils {
    * @return the string
    */
   public static final String camelCase(String in) {
-    StringBuffer buf = new StringBuffer();
+    StringBuilder buf = new StringBuilder();
 
     if (null != in && !in.trim().isEmpty()) {
       char[] separators = new char[] { '_', '.' };
       char[] chars = in.trim().toCharArray();
       
       buf.append(String.valueOf(chars[0]).toUpperCase());
-      
-      for (int i = 1; i < chars.length; ) {
-        if (!isSeparator(chars[i], separators)) {
-          buf.append(chars[i]);
+
+      int count = 1;
+      while(count < chars.length) {
+        if(isSeparator(chars[count], separators)) {
+          // do nothing
+        } else if(isSeparator(chars[count-1], separators)) {
+            buf.append(String.valueOf(chars[count]).toUpperCase());
         } else {
-          if (i < chars.length) {
-            buf.append(String.valueOf(chars[++i]).toUpperCase());
-          }
+          buf.append(chars[count]);
         }
 
-        i++;
+        count++;
       }
     }
     
@@ -94,7 +96,7 @@ public class StringUtils {
    * @return the string
    */
   public static final String memberCase(String in) {
-    StringBuffer buf = new StringBuffer();
+    StringBuilder buf = new StringBuilder();
 
     buf.append(camelCase(in));
     buf.replace(0, 1, buf.substring(0, 1).toLowerCase());

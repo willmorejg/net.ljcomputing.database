@@ -92,7 +92,8 @@ public class DatabaseConversionFactoryImpl
   public DatabaseConversionService createConversionService(
       DatabaseConversionStrategyType conversionStrategy) throws Exception {
     DatabaseConversionStrategy strategy = conversionStrategy.strategy();
-    logger.info("template: {}", env.getProperty(conversionStrategy.propertiesPrefix() + ".template"));
+    logger.info("template: {}", 
+        env.getProperty(conversionStrategy.propertiesPrefix() + ".template"));
     ConversionServiceContext context = strategy.getContext();
     context.createFreeMarkerContext(outputDirectoryPath, freemarkerConfiguration);
     context.setOutputTemplate(env.getProperty(conversionStrategy.propertiesPrefix() + ".template"));

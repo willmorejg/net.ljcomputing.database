@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing database conversion service context implementations.
+ *package containing database conversion service context implementations.
  * 
  * @author James G. Willmore
  *

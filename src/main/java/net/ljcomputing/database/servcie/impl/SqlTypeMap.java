@@ -28,7 +28,8 @@ import java.sql.Types;
  * @author James G. Willmore
  *
  */
-public class SqlTypeMap {
+public enum SqlTypeMap {
+  INSTANCE;
 
   /**
    * Convert SQL data type to Java data type.
@@ -36,7 +37,7 @@ public class SqlTypeMap {
    * @param type the type
    * @return the class
    */
-  public static Class<?> toClass(int type) {
+  public static final Class<?> toClass(int type) {
     Class<?> result = null;
 
     switch (type) {
@@ -52,6 +53,7 @@ public class SqlTypeMap {
         break;
   
       case Types.BIT:
+      case Types.BOOLEAN:
         result = Boolean.class;
         break;
   

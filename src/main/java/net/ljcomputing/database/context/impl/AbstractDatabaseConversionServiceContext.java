@@ -26,7 +26,8 @@ import net.ljcomputing.database.context.ConversionServiceContext;
  * @author James G. Willmore
  *
  */
-public abstract class AbstractDatabaseConversionServiceContext implements ConversionServiceContext {
+public abstract class AbstractDatabaseConversionServiceContext
+    implements ConversionServiceContext {
 
   /** The output path. */
   private String outputDirectoryPath;
@@ -53,7 +54,8 @@ public abstract class AbstractDatabaseConversionServiceContext implements Conver
    * createFreeMarkerContext(java.lang.String,
    * freemarker.template.Configuration)
    */
-  public void createFreeMarkerContext(String outputDirectoryPath, Configuration freemarkerConfiguration) {
+  public void createFreeMarkerContext(String outputDirectoryPath,
+      Configuration freemarkerConfiguration) {
     this.outputDirectoryPath = outputDirectoryPath;
     this.freemarkerConfiguration = freemarkerConfiguration;
 
@@ -131,9 +133,9 @@ public abstract class AbstractDatabaseConversionServiceContext implements Conver
    */
   @Override
   public String toString() {
-    return "DatabaseConversionServiceContext [outputDirectoryPath=" + outputDirectoryPath
-        + ", freemarkerConfiguration=" + freemarkerConfiguration 
-        + ", outputTemplate=" + outputTemplate
+    return "DatabaseConversionServiceContext [outputDirectoryPath="
+        + outputDirectoryPath + ", freemarkerConfiguration="
+        + freemarkerConfiguration + ", outputTemplate=" + outputTemplate
         + ", fileSuffix=" + fileSuffix + "]";
   }
 }

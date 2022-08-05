@@ -15,7 +15,7 @@
  */
 
 /**
- * Package containing classes specific to net.ljcomputing.database project.
+ *package containing classes specific to net.ljcomputing.database project.
  * 
  * @author James G. Willmore
  *

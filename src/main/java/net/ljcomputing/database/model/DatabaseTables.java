@@ -44,8 +44,6 @@ import net.ljcomputing.StringUtils;
  */
 @Component
 public class DatabaseTables {
-
-  /** The SFL4J logger. */
   private static Logger logger = LoggerFactory.getLogger(DatabaseTables.class);
 
   /** The Constant TABLE_CATALOG. */
@@ -128,46 +126,58 @@ public class DatabaseTables {
    */
   private synchronized void init(Connection conn) throws Exception {
     DatabaseMetaData dbmd = conn.getMetaData();
-    ResultSet rsdb = dbmd.getTables(null, null, "%", new String[] {"TABLE"});
+    ResultSet rsdb = dbmd.getTables(null, "public", "%", new String[] {"TABLE", "MATERIALIZED VIEW"/*, "VIEW"*/});
 
     tablesMap.put("tables", tables);
+    
 
     while (rsdb.next()) {
       DatabaseTable table = new DatabaseTable(rsdb);
+      Map<String, Map<String, String>> keys = null;
+      Statement stmt = null;
+      ResultSet rs = null;
 
-      Map<String, Map<String, String>> keys = getForeignKeys(dbmd, table.getTableName());
+      try {
+        keys = getForeignKeys(dbmd, table.getTableName());
+        stmt = conn.createStatement();
 
-      Statement stmt = conn.createStatement();
+        // in order to get information about the table directly using the methods
+        // in the ResultSetMetaData class, we have to execute a query -
+        // the query returns no rows from the table
+        rs = stmt
+            .executeQuery("select * from " + table.getTableName() + " where 1=0");
 
-      // in order to get information about the table directly using the methods
-      // in the ResultSetMetaData class, we have to execute a query -
-      // the query returns no rows from the table
-      ResultSet rs = stmt
-          .executeQuery("select * from " + table.getTableName() + " where 1=0");
+        ResultSetMetaData rsmdt = rs.getMetaData();
+        int columnCount = rsmdt.getColumnCount();
 
-      ResultSetMetaData rsmdt = rs.getMetaData();
-      int columnCount = rsmdt.getColumnCount();
-
-      for (int i = 1; i <= columnCount; i++) {
-        DatabaseTableColumn dbColumn = new DatabaseTableColumn(rsmdt, i);
-        
-        //TODO - refactor
-        if (keys.containsKey(dbColumn.getName())) {
-          String columnName = dbColumn.getName();
-          Map<String, String> map = keys.get(columnName);
-          Set<String> keySet = map.keySet();
-          Object[] keySetArray = keySet.toArray();
-          dbColumn.setClassName(StringUtils.camelCase(keySetArray[0].toString()));
-          dbColumn.setForeignKey(true);
+        for (int i = 1; i <= columnCount; i++) {
+          DatabaseTableColumn dbColumn = new DatabaseTableColumn(rsmdt, i);
+          
+          //TODO - refactor
+          if (keys.containsKey(dbColumn.getName())) {
+            String columnName = dbColumn.getName();
+            Map<String, String> map = keys.get(columnName);
+            Set<String> keySet = map.keySet();
+            Object[] keySetArray = keySet.toArray();
+            dbColumn.setClassName(StringUtils.camelCase(keySetArray[0].toString()));
+            dbColumn.setForeignKey(true);
+          }
+          
+          table.addColumn(dbColumn);
         }
-        
-        table.addColumn(dbColumn);
-      }
 
-      rs.close();
-      stmt.close();
-      
-      tables.add(table);
+        tables.add(table);
+      } catch (Exception e) {
+        logger.error("Exception: ", e);
+      } finally {
+        if (rs != null) {
+          rs.close();
+        }
+
+        if (stmt != null) {
+          stmt.close();
+        }
+      }
     }
   }
   
@@ -177,6 +187,9 @@ public class DatabaseTables {
     ResultSet rsdb = dbmd.getImportedKeys(null, null, tableName);
 
     while (rsdb.next()) {
+
+      //TODO implement
+      /*
       ResultSetMetaData rsmd = rsdb.getMetaData();
       int columnCount = rsmd.getColumnCount();
 
@@ -184,6 +197,7 @@ public class DatabaseTables {
         String columnName = rsmd.getColumnName(column);
         Object columnValue = rsdb.getObject(column);
       }
+      */
 
       String myColumn = rsdb.getObject("fkcolumn_name").toString();
       String otherTable = rsdb.getObject("pktable_name").toString();

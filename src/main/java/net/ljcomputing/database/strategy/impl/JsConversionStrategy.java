@@ -17,7 +17,6 @@
 package net.ljcomputing.database.strategy.impl;
 
 import net.ljcomputing.database.context.impl.JsDatabaseConversionServiceContext;
-import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
 
 /**
  * Database conversion strategy using a JavaScript template.
@@ -25,8 +24,7 @@ import net.ljcomputing.database.strategy.DatabaseConversionStrategy;
  * @author James G. Willmore
  *
  */
-public class JsConversionStrategy extends AbstractDatabaseConversionStrategy
-    implements DatabaseConversionStrategy {
+public class JsConversionStrategy extends AbstractDatabaseConversionStrategy {
 
   /**
    * Instantiates a new json conversion strategy.
